@@ -1,5 +1,5 @@
-# AI@GeorgiaTech Applied Research Fall 2025
-Thank you for your interest in joining AI@GeorgiaTech's Applied Research Team! This is an open ended assessment designed for you to demonstarte your creativity and coding ability. You will all be using [HuggingFace](https://huggingface.co/) to create a project of your choice! To ensure this assessment stays accessible, we ask all candidates to spend no more than 1.5 hours on their idea. Submissions will remain open until Wednesday Septermber 3 @11:59pm and will be reviewed on a rolling basis  
+# AI@GT Applied Research Fall 2025
+Thank you for your interest in joining AI@GT's Applied Research Team! This is an open ended assessment designed for you to demonstarte your creativity and coding ability. You will all be using [HuggingFace](https://huggingface.co/) to create a project of your choice! To ensure this assessment stays accessible, we ask all candidates to spend no more than 1.5 hours on their idea. Submissions will remain open until Wednesday Septermber 3 @11:59pm and will be reviewed on a rolling basis  
 
 ---
 
