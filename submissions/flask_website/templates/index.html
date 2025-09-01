@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width:device-width, initial-scale=1.0"/>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<h1>Old Ye Prompt</h1>
+<div class="input-container">
+<label for="Prompt">Everything will be knightified</label>
+<form method="POST" action="/ask">
+    <input class="ai-input" type="text" name="user_input" placeholder="I have always wanted to be a knight..." required>
+    <button type="submit">Knightify</button>
+</form>   
+{%if response %}
+<h2>AI response:</h2>
+<img src="data:image/png;base64,{{response}}" />
+{% endif %}
+
+</textarea>
+</div>
+</body>
+</html>
