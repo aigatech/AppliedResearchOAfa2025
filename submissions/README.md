@@ -5,5 +5,4 @@ prompts are put in context of knighthood. For example, when you put in the promp
 
 In order to run it, you need to download Flask. You will also need to download the transformers library and then the huggingface_hub library. You will also need to download Pillow to process the image data from the AI model.
 
-You will also need to create your own .env file where you type HF_TOKEN=YOUR_TOKEN, where YOUR_TOKEN is your hugging face token for the 
-
+You will also need to create your own .env file where you type HF_TOKEN=YOUR_TOKEN, where YOUR_TOKEN is your own hugging face token.
