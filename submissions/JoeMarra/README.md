@@ -11,6 +11,11 @@
 
 ---
 
+## 🌐 Models Used:
+
+1. distilgpt2: Text generation
+2. google/owlvit-base-patch32: Zero shot object detection
+
 ## 🏃 How to Run
 
 ### 1. 🔧 Installation
