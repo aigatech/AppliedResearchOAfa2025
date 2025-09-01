@@ -1,0 +1,7 @@
+transformers
+torch
+torchvision
+gradio
+pillow
+sentence-transformers
+faiss-cpu
