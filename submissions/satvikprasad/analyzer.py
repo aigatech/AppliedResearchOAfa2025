@@ -3,6 +3,8 @@ import torch
 import torch.nn.functional as F
 from emotions import emotions as e
 
+from typing import Tuple, Dict
+
 def mean_pooling(model_output, attention_mask):
     token_embeddings = model_output[0]
 
@@ -35,15 +37,15 @@ class EmotionAnalyzer:
 
         return emotion_embeddings
 
-    def most_similar(self, lyrics: list[str]) -> str:
+    def most_similar(self, lyrics: list[str]) -> Tuple[str, dict]:
         if not lyrics or len(lyrics) == 0:
             raise ValueError("No lyrics provided")
 
         """ Returns a 2D tensor of the embeddings of each phrase in the song """
         lyrics_embeddings = self.get_embeddings(lyrics)
 
-        emotion_scores = {}
-        row_emotions = {}
+        emotion_scores: Dict[str, float] = {}
+        row_emotions: Dict[int, str] = {}
 
         for row in range(lyrics_embeddings.shape[0]):
             lyric_embedding = lyrics_embeddings[row, :]
@@ -56,7 +58,7 @@ class EmotionAnalyzer:
         for emotion, _ in self.emotion_embeddings.items():
             emotion_scores[emotion] /= lyrics_embeddings.shape[0]
 
-        return max(emotion_scores.items(), key=lambda x : x[1]), row_emotions
+        return max(emotion_scores.items(), key=lambda x : x[1])[0], row_emotions
 
 
 analyser = EmotionAnalyzer()

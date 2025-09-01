@@ -17,7 +17,7 @@ pip install -r requirements.txt
 
 4. Then, simply run 
 ```
-python main.py
+export TOKENIZERS_PARALLELISM=false && python main.py
 ```
 and visit `http://127.0.0.1:5000` on your device.
 
