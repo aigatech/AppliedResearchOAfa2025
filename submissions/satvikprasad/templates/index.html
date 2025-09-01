@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Lyrical Emotion Classifier</title>
+		<script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.6/dist/htmx.min.js"></script>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+	</head>
+	<body>
+		<div class="container">
+			<div class="container-item">
+				<form hx-get="/api/similarity" hx-indicator="#spinner" hx-swap="none">
+					<input name="phrase" placeholder="What's the song you're trying to classify?"></input>
+					<button type="submit">Classify me!</button>
+				</form>
+				<img id="spinner" class="htmx-indicator" src="https://cdn-icons-png.flaticon.com/512/3305/3305803.png"></img>
+				<div id="summary" hx-swap-oob="true">
+				</div>
+			</div>
+			<div id="summary-list">
+			</div>
+		</div>
+	</body>
+</html>

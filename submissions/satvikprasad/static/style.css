@@ -1,0 +1,117 @@
+html {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 100pt;
+}
+
+.container-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#summary-list {
+	overflow-y: scroll;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-left: auto;
+	border-left: 2pt dashed #eee;
+	padding: 0pt 24pt;
+	min-height: 70vh;
+	min-width: 220pt;
+	gap: 12pt;
+	max-height: 70vh;
+}
+
+.summary-list-item {
+	max-width: 200pt;
+	background-color: #eee;
+	border-radius: 12pt;
+	padding: 12pt;
+	width: 100%;
+}
+
+.summary-list-item h2 {
+	font-size: 16pt;
+	color: #eb34b4;
+}
+
+input {
+	font-size: 16pt;
+	border-radius: 14pt;
+	border-color: #fff;
+
+	border-style: solid;
+
+	min-width: 400pt;
+	text-align: center;
+
+	padding: 12pt;
+
+	background-color: #eee;
+}
+
+button {
+	font-size: 16pt;
+	background-color: #eb34b4;
+	border-style: solid;
+	border-radius: 14pt;
+	padding: 12pt;
+	color: white;
+	border: none;
+}
+
+button:hover {
+	background-color: #c71291;
+}
+
+.center {
+	text-align: center;
+}
+
+.capitalize {
+	text-transform: capitalize;
+}
+
+.lyric_preview {
+	overflow-y: scroll;
+	max-height: 120pt;
+	padding: 12pt;
+	background-color: #eee;
+	border-radius: 12pt;
+}
+
+.lyric-row-item {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 3pt;
+}
+
+.lyric-row-emotion {
+	margin-left: auto;
+	color: #08c7c5;
+}
+
+p {
+	font-size: 14pt;
+}
+
+#spinner {
+	animation: spin 2s linear infinite;
+	height: 24pt;
+	width: 24pt;
+	margin: 40pt auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
