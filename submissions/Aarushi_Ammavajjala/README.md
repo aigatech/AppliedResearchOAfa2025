@@ -6,7 +6,7 @@ OR
 Medical Report Standardizier/Summarizer
 
 ## What It Does
-During my AI research internship at the Stanford Center for Artificial Intelligence in Medicine and Imaging, I observed that medical professionals—especially radiologists—often struggle with long, messy, and unstructured clinical notes. These notes may include abbreviations, shorthand, inconsistent terminology, and scattered information, making it difficult to quickly extract actionable insights or share information efficiently.
+During my AI research internship at the Stanford Center for Artificial Intelligence in Medicine and Imaging, I observed that medical professionals, especially radiologists, often struggle with long, messy, and unstructured clinical notes. These notes may include abbreviations, shorthand, inconsistent terminology, and scattered information, making it difficult to quickly extract actionable insights or share information efficiently.
 
 This project addresses that challenge by providing a Medical Report Standardizer & Summarizer using HuggingFace's biomedical-ner-all model. The system performs several key steps:
 
