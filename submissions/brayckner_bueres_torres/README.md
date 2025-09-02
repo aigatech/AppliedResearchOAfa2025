@@ -1,15 +1,16 @@
-# Network Traffic Anomaly Detection with XGBoost
+# Computer Network Traffic Anomaly Detection using XGBoost
 
 ## What it does
-Detects malicious network traffic patterns using XGBoost, identifying potential DDoS attacks, port scans, and other network anomalies in real-time traffic data.
-
-## Why it's useful
-- Helps SOC teams identify threats faster
-- Demonstrates when traditional ML (XGBoost) outperforms deep learning for tabular data
-- Shows proper handling of imbalanced cybersecurity datasets
+Detects malicious network traffic patterns using XGBoost to handle binary classification, identifying potential DDoS attacks, port scans, and other network anomalies in real-time traffic data.
 
 ## How to run
-[Your instructions]
+- Have conda installed: https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
+- In the terminal cd into: `submissions/brayckner_bueres_torres/`
+- Then run the command: `conda env create -f environment.yml`. This will install all the dependencies to run this project.
+- Then run the command: `conda activate georgia-tech-ai-oa`
+- Open `submissions/brayckner_bueres_torres/network_anomaly_detection.ipynb`
+- Ensure the notebook is using the conda env `georgia-tech-ai-oa` 
+- Run full notebook.
 
 ## HuggingFace Integration
-- Uses HuggingFace `datasets` for data loading
+- Uses HuggingFace `datasets` for data loading the `abmallick/network-traffic-anomaly` dataset for this project.
