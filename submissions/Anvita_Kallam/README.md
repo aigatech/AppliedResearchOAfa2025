@@ -1,4 +1,4 @@
-# 💡📝📖 Flashcard Generator 📖📝💡
+# 💡📝📖 Flashcard Generator 
 
 A Python application that generates study flashcards from any text input using Hugging Face's `google/gemma-3-270m` model.
 
