@@ -1,0 +1,7 @@
+fine_tuned_distillgpt2-concepts/
+recipe_outputs/
+venv/
+indian_food.csv
+.idea/
+submissions/indian_recipe_concepts.txt
+submissions/run_clm.py
