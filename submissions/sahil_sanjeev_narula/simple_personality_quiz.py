@@ -4,7 +4,6 @@ import time
 # Page congif
 st.set_page_config(
     page_title="Simple Personality Quiz",
-    page_icon="🧠",
     layout="wide"
 )
 
