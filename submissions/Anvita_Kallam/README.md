@@ -4,12 +4,12 @@ A Python application that generates study flashcards from any text input using m
 
 ## Features
 
-- **Multiple AI Models**: Choose between speed vs. quality with 3 different models
 - **Automatic Formatting**: Converts any text into exactly 3 Q/A flashcards
 - **Performance Benchmarking**: Compare model speeds and quality
 - **CLI Interface**: Command-line arguments for advanced usage
 - **Fallback Mechanism**: Multiple parsing strategies ensure you always get usable output
-- **Gated Model Support**: Handles Hugging Face authentication automatically
+- **Multiple AI Models**: Choose between speed vs. quality with 3 different models
+- **Gated Model**: Handles Hugging Face authentication automatically
 
 ## How It Works
 
@@ -33,7 +33,7 @@ python -m pip install -r requirements.txt
 python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
 ```
 
-**Note**: Models will be downloaded automatically on first use (~1-2GB total).
+**Note**: Models will be downloaded automatically on first use (around 1 or 2GB total).
 
 ### 3. Authenticate with Hugging Face
 ```bash
