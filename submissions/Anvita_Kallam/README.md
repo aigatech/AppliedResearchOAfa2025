@@ -1,8 +1,8 @@
 # 💡📝📖 Flashcard Generator 📖📝💡
 
-A Python application that generates study flashcards from any text input using multiple Hugging Face AI models with speed vs. quality tradeoffs.
+Turn any text into 3 study flashcards using Hugging Face AI models. Perfect for quick revision, practice, or turning your notes into questions.
 
-## Features
+## Features ✨
 
 - **Automatic Formatting**: Converts any text into exactly 3 Q/A flashcards
 - **Performance Benchmarking**: Compare model speeds and quality
@@ -11,14 +11,14 @@ A Python application that generates study flashcards from any text input using m
 - **Multiple AI Models**: Choose between speed vs. quality with 3 different models
 - **Gated Model**: Handles Hugging Face authentication automatically
 
-## How It Works
+## How It Works 💡
 
 1. **Input**: Paste any text (articles, notes, paragraphs, etc.)
 2. **Processing**: The AI model analyzes the content and attempts to create structured Q/A pairs
 3. **Fallback System**: If the model doesn't follow strict formatting, the fallbacks will extract key information
 4. **Output**: Always delivers exactly 3 flashcards in Q/A format
 
-## Installation & Setup
+## Installation & Setup 🚀
 
 ### 1. Create Virtual Environment
 ```bash
@@ -51,7 +51,7 @@ export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1
 export CUDA_VISIBLE_DEVICES=
 ```
 
-## Usage
+## Usage 📝
 
 ### Basic Usage
 ```bash
@@ -59,6 +59,8 @@ python main.py
 ```
 
 ### Advanced Usage
+Use these commands to customize your experience! Pick between different models and evaluate as needed.
+
 ```bash
 # Use fast model for quick generation
 python main.py --model fast
@@ -83,7 +85,7 @@ python main.py --benchmark
 
 When prompted, paste your source text and press Enter. The program will generate 3 flashcards. Source text can be of any subject.
 
-## Example
+## Example 🐝
 
 ### Input
 ```
@@ -102,17 +104,15 @@ The Georgia Institute of Technology is a public research university and institut
    A: The Georgia Institute of Technology has the largest student enrollment.
 ```
 
-## Technical Details
+## Project Details 
 
 - **Models**: 
   - DistilGPT-2 (82M parameters) - Fast
   - Gemma 3 270M (270M parameters) - Balanced  
   - DialoGPT Medium (345M parameters) - Quality
 - **Framework**: Hugging Face Transformers with PyTorch backend
-- **Performance**: Built-in benchmarking and timing
-- **CLI**: Full command-line interface with argparse
 
-## Troubleshooting
+## Troubleshooting ✨
 
 ### "Gated repo" Error
 - Only affects the "balanced" model (Gemma 3 270M)
@@ -132,7 +132,7 @@ The Georgia Institute of Technology is a public research university and institut
 - Add web interface for easier usage
 - Support for PDF and URL inputs
 
-## Requirements
+## Requirements ⭐
 
 - Python 3.9+
 - Hugging Face account and token
