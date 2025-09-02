@@ -1,7 +1,9 @@
+import argparse
 import os
 import re
 import sys
-from typing import List, Tuple
+import time
+from typing import List, Tuple, Dict, Any
 
 # Mitigate macOS mutex crash in tokenizers and torch by disabling threads
 os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
@@ -21,6 +23,35 @@ except Exception:
     torch = None  # type: ignore
 
 from transformers import pipeline
+
+
+# Model configurations for different speed/quality tradeoffs
+MODEL_CONFIGS = {
+    "fast": {
+        "model": "distilgpt2",
+        "name": "DistilGPT-2 (Fast)",
+        "description": "Ultra-fast generation, basic quality",
+        "max_tokens": 80,
+        "temperature": 0.7,
+        "gated": False
+    },
+    "balanced": {
+        "model": "google/gemma-3-270m",
+        "name": "Gemma 3 270M (Balanced)",
+        "description": "Good balance of speed and quality",
+        "max_tokens": 120,
+        "temperature": 0.5,
+        "gated": True
+    },
+    "quality": {
+        "model": "microsoft/DialoGPT-medium",
+        "name": "DialoGPT Medium (Quality)",
+        "description": "Higher quality, slower generation",
+        "max_tokens": 150,
+        "temperature": 0.3,
+        "gated": False
+    }
+}
 
 
 STRICT_FORMAT_GUIDE = (
@@ -135,11 +166,11 @@ def print_gated_repo_help() -> None:
     )
 
 
-def generate_with_settings(generator, prompt: str, temperature: float) -> str:
+def generate_with_settings(generator, prompt: str, config: Dict[str, Any]) -> str:
     outputs = generator(
         prompt,
-        max_new_tokens=120,
-        temperature=temperature,
+        max_new_tokens=config["max_tokens"],
+        temperature=config["temperature"],
         top_p=0.9,
         do_sample=True,
         num_return_sequences=1,
@@ -149,14 +180,20 @@ def generate_with_settings(generator, prompt: str, temperature: float) -> str:
     return outputs[0]["generated_text"][len(prompt):].strip() if outputs else ""
 
 
-def generate_flashcards(text: str) -> List[Tuple[str, str]]:
-    user_token = os.environ.get("HF_TOKEN")
+def generate_flashcards(text: str, model_mode: str = "balanced") -> Tuple[List[Tuple[str, str]], float]:
+    """Generate flashcards using specified model mode. Returns (cards, generation_time)."""
+    config = MODEL_CONFIGS[model_mode]
+    user_token = os.environ.get("HF_TOKEN") if config["gated"] else None
 
+    print(f"Using {config['name']}: {config['description']}")
+    
+    start_time = time.time()
+    
     try:
         generator = pipeline(
             "text-generation",
-            model="google/gemma-3-270m",
-            tokenizer="google/gemma-3-270m",
+            model=config["model"],
+            tokenizer=config["model"],
             token=user_token,
             framework="pt",
             device=-1,  # force CPU
@@ -165,15 +202,15 @@ def generate_flashcards(text: str) -> List[Tuple[str, str]]:
     except Exception as e:  # Handle gated/unauthorized errors gracefully
         message = str(e).lower()
         if "gated" in message or "401" in message or "unauthorized" in message or "forbidden" in message:
-            print("Error: Access to model 'google/gemma-3-270m' is gated or unauthorized.")
+            print(f"Error: Access to model '{config['model']}' is gated or unauthorized.")
             print_gated_repo_help()
-            return [("Authorization required", "Please grant access and authenticate (see instructions above).")]
+            return [("Authorization required", "Please grant access and authenticate (see instructions above).")], 0.0
         raise
 
     # First attempt
     prompt = build_prompt(text)
     try:
-        generated = generate_with_settings(generator, prompt, temperature=0.3)
+        generated = generate_with_settings(generator, prompt, config)
     except Exception as e:
         print("A low-level runtime error occurred while generating text.")
         print("Tips:")
@@ -187,7 +224,9 @@ def generate_flashcards(text: str) -> List[Tuple[str, str]]:
     # Retry once with stricter prompt and lower temperature if parsing failed
     if not cards:
         strict_prompt = build_stricter_prompt(text)
-        generated = generate_with_settings(generator, strict_prompt, temperature=0.1)
+        strict_config = config.copy()
+        strict_config["temperature"] = 0.1
+        generated = generate_with_settings(generator, strict_prompt, strict_config)
         cards = parse_flashcards(generated)
 
     # Heuristic fallback if still nothing
@@ -198,28 +237,97 @@ def generate_flashcards(text: str) -> List[Tuple[str, str]]:
     if not cards:
         cards = fallback_from_source_text(text)
 
-    return cards
+    generation_time = time.time() - start_time
+    return cards, generation_time
+
+
+def print_model_options() -> None:
+    """Print available model options."""
+    print("Available models:")
+    for mode, config in MODEL_CONFIGS.items():
+        print(f"  {mode:8} - {config['name']}: {config['description']}")
+    print()
 
 
 def main() -> None:
-    print("Flashcard Generator (Gemma 3 270M)")
-    print("Enter or paste the source text, then press Enter.\n")
-    try:
-        source_text = input("> ")
-    except KeyboardInterrupt:
-        print("\nCancelled.")
+    parser = argparse.ArgumentParser(description="Generate flashcards from text using AI models")
+    parser.add_argument("--model", choices=list(MODEL_CONFIGS.keys()), default="balanced",
+                       help="Model mode: fast (speed), balanced (default), quality")
+    parser.add_argument("--list-models", action="store_true", help="List available models and exit")
+    parser.add_argument("--benchmark", action="store_true", help="Run benchmark on all models")
+    parser.add_argument("--text", type=str, help="Text to process (if not provided, will prompt)")
+    
+    args = parser.parse_args()
+    
+    if args.list_models:
+        print_model_options()
         return
+    
+    print("💡📝📖 Flashcard Generator 📖📝💡")
+    print(f"Selected model: {MODEL_CONFIGS[args.model]['name']}")
+    print()
+    
+    if args.benchmark:
+        run_benchmark()
+        return
+    
+    # Get source text
+    if args.text:
+        source_text = args.text
+    else:
+        print("Enter or paste the source text, then press Enter.\n")
+        try:
+            source_text = input("> ")
+        except KeyboardInterrupt:
+            print("\nCancelled.")
+            return
 
     if not source_text.strip():
         print("No text provided. Exiting.")
         return
 
-    print("\nGenerating 3 flashcards...\n")
-    cards = generate_flashcards(source_text)
+    print(f"\nGenerating 3 flashcards using {MODEL_CONFIGS[args.model]['name']}...\n")
+    cards, generation_time = generate_flashcards(source_text, args.model)
 
     for idx, (q, a) in enumerate(cards, start=1):
         print(f"{idx}) Q: {q}")
         print(f"   A: {a}\n")
+    
+    print(f"⏱️  Generation time: {generation_time:.2f} seconds")
+
+
+def run_benchmark() -> None:
+    """Run benchmark on all models with sample text."""
+    sample_text = "Python is a high-level programming language known for its simplicity and readability. It supports multiple programming paradigms and has a large standard library."
+    
+    print("🚀 Running benchmark on all models...\n")
+    
+    results = []
+    for mode, config in MODEL_CONFIGS.items():
+        print(f"Testing {config['name']}...")
+        try:
+            cards, generation_time = generate_flashcards(sample_text, mode)
+            results.append((mode, config['name'], generation_time, len(cards)))
+            print(f"✅ Completed in {generation_time:.2f}s\n")
+        except Exception as e:
+            print(f"❌ Failed: {e}\n")
+            results.append((mode, config['name'], float('inf'), 0))
+    
+    # Print benchmark results
+    print("📊 Benchmark Results:")
+    print("-" * 60)
+    print(f"{'Model':<20} {'Time (s)':<10} {'Cards':<8} {'Status'}")
+    print("-" * 60)
+    
+    for mode, name, time_taken, card_count in results:
+        status = "✅ Success" if time_taken != float('inf') else "❌ Failed"
+        print(f"{name:<20} {time_taken:<10.2f} {card_count:<8} {status}")
+    
+    # Find fastest and best quality
+    successful_results = [(mode, name, time_taken) for mode, name, time_taken, _ in results if time_taken != float('inf')]
+    if successful_results:
+        fastest = min(successful_results, key=lambda x: x[2])
+        print(f"\n🏆 Fastest: {fastest[1]} ({fastest[2]:.2f}s)")
 
 
 if __name__ == "__main__":

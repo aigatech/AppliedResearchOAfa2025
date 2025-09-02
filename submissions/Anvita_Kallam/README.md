@@ -1,11 +1,13 @@
 # 💡📝📖 Flashcard Generator 📖📝💡
 
-A Python application that generates study flashcards from any text input using Hugging Face's `google/gemma-3-270m` model.
+A Python application that generates study flashcards from any text input using multiple Hugging Face AI models with speed vs. quality tradeoffs.
 
 ## Features
 
-- **Hugging Face**: Uses Google's Gemma 3 270M model for intelligent content extraction
+- **Multiple AI Models**: Choose between speed vs. quality with 3 different models
 - **Automatic Formatting**: Converts any text into exactly 3 Q/A flashcards
+- **Performance Benchmarking**: Compare model speeds and quality
+- **CLI Interface**: Command-line arguments for advanced usage
 - **Fallback Mechanism**: Multiple parsing strategies ensure you always get usable output
 - **Gated Model Support**: Handles Hugging Face authentication automatically
 
@@ -31,13 +33,16 @@ python -m pip install -r requirements.txt
 python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
 ```
 
+**Note**: Models will be downloaded automatically on first use (~1-2GB total).
+
 ### 3. Authenticate with Hugging Face
 ```bash
 huggingface-cli login
 ```
 - Create/login to your Hugging Face account
-- Request access to `google/gemma-3-270m` model
+- Request access to `google/gemma-3-270m` model (required for "balanced" mode)
 - Follow the authentication prompts
+- Note: "fast" and "quality" models don't require authentication
 
 ### 4. Set Environment Variables (if using macOS)
 ```bash
@@ -46,11 +51,42 @@ export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1
 export CUDA_VISIBLE_DEVICES=
 ```
 
-## Run the Program
+## Quick Start
 
+Try it immediately with the fast model (no authentication required):
+```bash
+python main.py --model fast --text "Python is a programming language known for its simplicity."
+```
+
+## Usage
+
+### Basic Usage
 ```bash
 python main.py
 ```
+
+### Advanced Usage
+```bash
+# Use fast model for quick generation
+python main.py --model fast
+
+# Use quality model for better results
+python main.py --model quality
+
+# Process text directly from command line
+python main.py --text "Your text here" --model balanced
+
+# List available models
+python main.py --list-models
+
+# Run benchmark on all models
+python main.py --benchmark
+```
+
+### Available Models
+- **fast**: DistilGPT-2 - Ultra-fast generation, basic quality
+- **balanced**: Gemma 3 270M - Good balance of speed and quality (default)
+- **quality**: DialoGPT Medium - Higher quality, slower generation
 
 When prompted, paste your source text and press Enter. The program will generate 3 flashcards. Source text can be of any subject.
 
@@ -75,27 +111,47 @@ The Georgia Institute of Technology is a public research university and institut
 
 ## Technical Details
 
-- **Model**: `google/gemma-3-270m` (270M parameters)
+- **Models**: 
+  - DistilGPT-2 (82M parameters) - Fast
+  - Gemma 3 270M (270M parameters) - Balanced  
+  - DialoGPT Medium (345M parameters) - Quality
 - **Framework**: Hugging Face Transformers with PyTorch backend
+- **Performance**: Built-in benchmarking and timing
+- **CLI**: Full command-line interface with argparse
 
 ## Troubleshooting
 
 ### "Gated repo" Error
-- Ensure you've requested access to the model on Hugging Face
+- Only affects the "balanced" model (Gemma 3 270M)
+- Ensure you've requested access to `google/gemma-3-270m` on Hugging Face
 - Run `huggingface-cli login` and authenticate
 - Verify with `huggingface-cli whoami`
+- Alternative: Use `--model fast` or `--model quality` which don't require authentication
 
 ### Model Not Following Format
-- This can happen due to small size of the 270M model
+- Smaller models (fast/balanced) may not follow strict Q/A formatting
 - The fallback system ensures you always get 3 flashcards
+- Try `--model quality` for better formatting adherence
 - Questions may be generic but answers are extracted from your text
 
 ## Future Developments
-- Use a larger model that can create varied question outputs
-- Create an intuitive frontend
+- Add more model options (Llama, Mistral, etc.)
+- Implement question type selection (multiple choice, fill-in-blank)
+- Add web interface for easier usage
+- Support for PDF and URL inputs
+- Export to Anki/Quizlet formats
 
 ## Requirements
 
 - Python 3.9+
-- Hugging Face account with model access
-- Disk space for model cache
+- Hugging Face account (only required for "balanced" model)
+- Disk space for model cache (~1-2GB total for all models)
+- Internet connection for initial model downloads
+
+## Model Requirements
+
+| Model | Size | Authentication | Use Case |
+|-------|------|----------------|----------|
+| DistilGPT-2 | 82M | ❌ None | Fast generation, basic quality |
+| Gemma 3 270M | 270M | ✅ Required | Balanced speed/quality |
+| DialoGPT Medium | 345M | ❌ None | Higher quality, slower |
