@@ -51,13 +51,6 @@ export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1
 export CUDA_VISIBLE_DEVICES=
 ```
 
-## Quick Start
-
-Try it immediately with the fast model (no authentication required):
-```bash
-python main.py --model fast --text "Python is a programming language known for its simplicity."
-```
-
 ## Usage
 
 ### Basic Usage
@@ -129,9 +122,8 @@ The Georgia Institute of Technology is a public research university and institut
 - Alternative: Use `--model fast` or `--model quality` which don't require authentication
 
 ### Model Not Following Format
-- Smaller models (fast/balanced) may not follow strict Q/A formatting
+- Smaller models may not follow strict Q/A formatting
 - The fallback system ensures you always get 3 flashcards
-- Try `--model quality` for better formatting adherence
 - Questions may be generic but answers are extracted from your text
 
 ## Future Developments
@@ -139,14 +131,12 @@ The Georgia Institute of Technology is a public research university and institut
 - Implement question type selection (multiple choice, fill-in-blank)
 - Add web interface for easier usage
 - Support for PDF and URL inputs
-- Export to Anki/Quizlet formats
 
 ## Requirements
 
 - Python 3.9+
-- Hugging Face account (only required for "balanced" model)
-- Disk space for model cache (~1-2GB total for all models)
-- Internet connection for initial model downloads
+- Hugging Face account and token
+- Disk space for model
 
 ## Model Requirements
 
