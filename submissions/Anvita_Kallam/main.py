@@ -5,27 +5,26 @@ import sys
 import time
 from typing import List, Tuple, Dict, Any
 
-# Mitigate macOS mutex crash in tokenizers and torch by disabling threads
+# In case of macOS mutex crash in tokenizers and torch, disable threads
 os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
 os.environ.setdefault("OMP_NUM_THREADS", "1")
 os.environ.setdefault("MKL_NUM_THREADS", "1")
-# Force CPU and avoid GPU/MPS acceleration which can be unstable on some macOS setups
 os.environ.setdefault("CUDA_VISIBLE_DEVICES", "")
 os.environ.setdefault("PYTORCH_ENABLE_MPS_FALLBACK", "1")
 
 try:
-    import torch  # type: ignore
+    import torch
     try:
         torch.set_num_threads(1)
     except Exception:
         pass
 except Exception:
-    torch = None  # type: ignore
+    torch = None
 
 from transformers import pipeline
 
 
-# Model configurations for different speed/quality tradeoffs
+# Model configurations for different specifications
 MODEL_CONFIGS = {
     "fast": {
         "model": "distilgpt2",
@@ -53,7 +52,7 @@ MODEL_CONFIGS = {
     }
 }
 
-
+# Apply stricter formatting to ensure 3 flashcards are generated
 STRICT_FORMAT_GUIDE = (
     "Format strictly as three numbered items like this and nothing else:"\
     "\n\n"
@@ -63,7 +62,7 @@ STRICT_FORMAT_GUIDE = (
     "Rules: Exactly 3 items. No extra bullets. No explanations."
 )
 
-
+# Iniial Prpmpt
 def build_prompt(source_text: str) -> str:
     return (
         "You are a helpful assistant that creates concise study flashcards.\n"
@@ -81,9 +80,8 @@ def build_stricter_prompt(source_text: str) -> str:
         f"Text:\n{source_text}\n"
     )
 
-
+# Extract pairs of Q:/A: lines, in order
 def parse_flashcards(generated_text: str) -> List[Tuple[str, str]]:
-    # Extract pairs of Q:/A: lines, in order
     cards: List[Tuple[str, str]] = []
     lines = [line.strip() for line in generated_text.splitlines() if line.strip()]
     current_q = None
@@ -99,9 +97,8 @@ def parse_flashcards(generated_text: str) -> List[Tuple[str, str]]:
             break
     return cards
 
-
+# Take first 3 numbered items and make question/answer pairs
 def extract_numbered_items_as_cards(text: str) -> List[Tuple[str, str]]:
-    # Heuristic: take first 3 numbered items and make question/answer pairs
     items = re.findall(r"(?:^|\n)\s*(?:\d+\)|-\s+|•\s+)(.+?)\s*(?=(?:\n\s*(?:\d+\)|-\s+|•\s+)|$))", text, flags=re.S)
     cards: List[Tuple[str, str]] = []
     for raw in items[:3]:
@@ -113,13 +110,12 @@ def extract_numbered_items_as_cards(text: str) -> List[Tuple[str, str]]:
         cards.append((q, a))
     return cards
 
-
+# Build 3 concise Q/A from the user's text directly
 def fallback_from_source_text(source_text: str) -> List[Tuple[str, str]]:
-    # Build 3 concise Q/A from the user's text directly
     # Split into sentences
     chunks = re.split(r"(?<=[.!?])\s+|\n+", source_text)
     sentences = [" ".join(s.strip().split()) for s in chunks if s and len(s.strip()) > 0]
-    # Prefer non-trivial sentences
+    # Prefer longer sentences, more likely to not be trivial.
     selected = [s for s in sentences if len(s) > 20][:3]
     if len(selected) < 3:
         selected.extend(sentences[: 3 - len(selected)])
@@ -139,14 +135,14 @@ def fallback_from_source_text(source_text: str) -> List[Tuple[str, str]]:
     for i, s in enumerate(selected):
         if not s:
             continue
-        # Use different question templates
+        # Use different question templates so it is varied
         q = question_templates[i % len(question_templates)]
         a = s
         cards.append((q, a))
         if len(cards) == 3:
             break
     
-    # Ensure exactly 3
+    # Ensure there is only 3
     while len(cards) < 3:
         q = question_templates[len(cards) % len(question_templates)]
         cards.append((q, "<no additional content>"))
@@ -233,7 +229,7 @@ def generate_flashcards(text: str, model_mode: str = "balanced") -> Tuple[List[T
     if not cards:
         cards = extract_numbered_items_as_cards(generated)
 
-    # Final fallback: derive from source text to guarantee 3 items
+    # Final fallback
     if not cards:
         cards = fallback_from_source_text(text)
 
