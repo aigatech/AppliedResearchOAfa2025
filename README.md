@@ -1,25 +1,25 @@
-# AI@GT Applied Research Fall 2025
-Thank you for your interest in joining AI@GT's Applied Research Team! This is an open ended assessment designed for you to demonstarte your creativity and coding ability. You will all be using [HuggingFace](https://huggingface.co/) to create a project of your choice! To ensure this assessment stays accessible, we ask all candidates to spend no more than 1.5 hours on their idea. Submissions will remain open until Wednesday Septermber 3 @11:59pm and will be reviewed on a rolling basis  
+## Project Title
 
----
+How did 8 years of medical school not teach you how to write?
 
-##  Instructions
-1. Fork this repository.  
-2. Install any HuggingFace libraries you need for your project, for example:
+OR
 
+Medical Report Standardizier/Summarizer
+
+## What It Does
+
+During my AI research internship at the Stanford Center for Artificial Intelligence in Medicine and Imaging, I observed that medical professionals—especially radiologists—often struggle with long, messy, and unstructured clinical notes. These notes may include abbreviations, shorthand, inconsistent terminology, and scattered information, making it difficult to quickly extract actionable insights or share information efficiently.
+
+This project addresses that challenge by providing a Medical Report Standardizer & Summarizer using HuggingFace's `biomedical-ner-all` model. The system performs several key steps:
+
+1. **Abbreviation Expansion**: Automatically expands common clinical abbreviations (e.g., "Pt" → "Patient", "c/o" → "complains of") to improve readability and model accuracy.  
+2. **Named Entity Recognition (NER)**: Uses a pretrained biomedical NER model to identify and classify entities such as symptoms, diseases, medications, procedures, and body structures.  
+3. **Subword Token Merging**: Combines split tokens produced by the model (e.g., "met" + "##oprolol" → "metoprolol") to produce clean, complete terms.  
+4. **Standardization**: Maps the model's raw entity labels to a consistent schema, creating structured outputs that can easily be parsed or integrated into downstream systems. 
+5. **Summary Generation**: Produces a concise, human-readable summary sentence from the extracted entities, allowing clinicians to quickly grasp the most relevant information.  
+## How to Run It
+
+1. Install dependencies:
    ```bash
-   pip install transformers datasets
-   
-3. Build your project in submissions/<your_full_name>/
-
-## Submission
-When finished, open a Pull Request (PR) to this repo. Title your PR: "Submission: Your Name". Please include a short README.md inside your submission folder with:
-- Project title
-- What it does
-- How to run it
-
-#### ⚠️ Important
-- **Do not commit model weights, large datasets, or your virtual environment (`venv/`, `.env/`, etc.)**.  
-- Only include the code, small config files, and instructions to re-install dependencies
-
-#### Note: You don’t need a GPU to complete this! Plenty of HuggingFace models (DistilBERT, MiniLM, etc.) run well on CPU. Focus on building something small but creative! We look foward to seeing all of your ideas come to life. If you have any questions, please reach out to zishani3@gatech.edu.  
+   pip install transformers gradio
+   python main.py
