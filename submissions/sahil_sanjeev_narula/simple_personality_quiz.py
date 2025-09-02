@@ -1,6 +1,6 @@
-import streamlit as st
+import streamlit as st  # pyright: ignore[reportMissingImports]
 import time
-from transformers import pipeline
+from transformers import pipeline  # pyright: ignore[reportMissingImports]
 
 # Page configuration
 st.set_page_config(
