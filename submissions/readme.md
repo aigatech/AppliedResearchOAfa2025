@@ -4,7 +4,7 @@
 This app allows users to upload one or more plant images and predicts potential diseases using a Vision Transformer (ViT) model from Hugging Face.  
 It highlights disease likelihood with colored bars, provides a health status (healthy, diseased, or uncertain), and gives some recommendations for plant care.
 
-## How to run it
+## How to run it (python 3+)
 1. Clone the repository:
 
 ```bash
@@ -12,14 +12,18 @@ git clone <https://github.com/samik-py/AppliedResearchOAfa2025>
 cd submissions
 ```
 
-2 (OPTIONAL). Create virtual environment (.venv), preferably through cmd + shift + p => "Python: create environment" in VsCode or through the terminal. Make sure to activate the environment by running
+2. Initialize and activate the virtual environment. Either through VsCode's cmd + shift + p => "Python create virtual environment" or by running:
 
 ```bash
 
+#make environment
+python3 -m venv venv
 #activate
 source .venv/bin/activate
 
 ```
+(remember to select the correct python interpreter)
+
 (on mac, windows may be different)
 
 3. Install dependencies. Run these lines in the terminal (assuming pip is already installed)
