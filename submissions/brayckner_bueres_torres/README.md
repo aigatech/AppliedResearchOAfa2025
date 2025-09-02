@@ -1,7 +1,7 @@
-# Computer Network Traffic Anomaly Detection using XGBoost
+# Network Traffic Classification for Anomaly Detection (XGBoost)
 
 ## What it does
-Detects malicious network traffic patterns using XGBoost to handle binary classification, identifying potential DDoS attacks, port scans, and other network anomalies in real-time traffic data.
+Implements a supervised learning approach using XGBoost to perform binary classification on network traffic data. The model detects malicious patterns in real time, such as potential DDoS attacks, port scans, and other network anomalies, enabling proactive network defense.
 
 ## How to run
 - Have conda installed: https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
