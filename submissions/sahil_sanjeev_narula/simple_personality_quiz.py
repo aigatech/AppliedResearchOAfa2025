@@ -1,7 +1,7 @@
 import streamlit as st
 import time
 
-# Page congif
+# Page config
 st.set_page_config(
     page_title="Simple Personality Quiz",
     layout="wide"
