@@ -1,8 +1,11 @@
 # 🌱 Plant Disease Detector
 
 ## What it does
-This app allows users to upload one or more plant images and predicts potential diseases using a Vision Transformer (ViT) model from Hugging Face.  
-It highlights disease likelihood with colored bars, provides a health status (healthy, diseased, or uncertain), and gives some recommendations for plant care.
+This Plant Disease Detector allows users to upload one or more plant images and predicts potential diseases using a Vision Transformer (ViT) model from Hugging Face.
+
+It highlights disease likelihood, provides a health status (healthy, diseased, or uncertain), and gives some recommendations for plant care.
+
+Also, the program provides a heat-map overlay of the original image to see the problem areas on the plant!
 
 ## How to run it (python 3+)
 1. Clone the repository:
