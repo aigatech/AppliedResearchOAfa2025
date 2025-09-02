@@ -1,21 +1,13 @@
-#!/usr/bin/env python3
-"""
-Simple Personality Quiz - AI@GT Assessment
-A simplified personality assessment using basic questions and scoring.
-Realistic for 1.5 hours of development.
-"""
-
 import streamlit as st
 import time
 
-# Page configuration
+# Page congif
 st.set_page_config(
     page_title="Simple Personality Quiz",
     page_icon="🧠",
     layout="wide"
 )
 
-# Personality questions (hardcoded - realistic for 1.5 hours)
 QUESTIONS = [
     {
         "question": "I enjoy trying new experiences and activities",
@@ -69,7 +61,6 @@ QUESTIONS = [
     }
 ]
 
-# Trait descriptions
 TRAIT_DESCRIPTIONS = {
     "openness": {
         "name": "Openness to Experience",
@@ -109,12 +100,12 @@ TRAIT_DESCRIPTIONS = {
 }
 
 def calculate_scores(responses):
-    """Calculate personality scores based on responses."""
+    # Calculate personality scores
     scores = {trait: 0 for trait in TRAIT_DESCRIPTIONS.keys()}
     counts = {trait: 0 for trait in TRAIT_DESCRIPTIONS.keys()}
     
     for i, response in enumerate(responses):
-        if response is not None:  # User answered this question
+        if response is not None: 
             question = QUESTIONS[i]
             trait = question["trait"]
             positive = question["positive"]
@@ -124,25 +115,23 @@ def calculate_scores(responses):
                 scores[trait] += 1
             elif (positive and response == "disagree") or (not positive and response == "agree"):
                 scores[trait] -= 1
-            # neutral responses get 0
             
             counts[trait] += 1
     
-    # Calculate percentages (0-100 scale)
+    # Calculate percentages
     percentages = {}
     for trait in scores:
         if counts[trait] > 0:
-            # Convert from -2 to +2 scale to 0-100 scale
             raw_score = scores[trait]
             percentage = max(0, min(100, 50 + (raw_score * 25)))
             percentages[trait] = percentage
         else:
-            percentages[trait] = 50  # Neutral if no questions answered
+            percentages[trait] = 50 
     
     return percentages
 
 def get_personality_summary(scores):
-    """Generate a simple personality summary."""
+    # personality summary
     summary = []
     
     for trait, score in scores.items():
@@ -169,25 +158,21 @@ def get_personality_summary(scores):
     return summary
 
 def main():
-    st.title("🧠 Simple Personality Quiz")
+    st.title("Simple Personality Quiz")
     st.markdown("Discover your personality traits in just 10 questions!")
     
-    # Initialize session state
     if 'current_question' not in st.session_state:
         st.session_state.current_question = 0
         st.session_state.responses = [None] * len(QUESTIONS)
         st.session_state.quiz_complete = False
     
-    # Quiz interface
     if not st.session_state.quiz_complete:
         st.header(f"Question {st.session_state.current_question + 1} of {len(QUESTIONS)}")
         
-        # Display current question
         question = QUESTIONS[st.session_state.current_question]
         st.markdown(f"**{question['question']}**")
         st.markdown(f"*Trait: {TRAIT_DESCRIPTIONS[question['trait']]['name']}*")
         
-        # Answer options
         col1, col2, col3 = st.columns(3)
         
         with col1:
@@ -205,44 +190,37 @@ def main():
                 st.session_state.responses[st.session_state.current_question] = "agree"
                 next_question()
         
-        # Progress bar
         progress = (st.session_state.current_question + 1) / len(QUESTIONS)
         st.progress(progress)
         
-        # Navigation
         if st.session_state.current_question > 0:
             if st.button("⬅️ Previous"):
                 st.session_state.current_question -= 1
                 st.rerun()
     
     else:
-        # Results page
-        st.header("🎯 Your Personality Results")
+        st.header("Your Personality Results")
         
-        # Calculate scores
         scores = calculate_scores(st.session_state.responses)
         summary = get_personality_summary(scores)
         
-        # Display results
         for trait_summary in summary:
             with st.expander(f"{trait_summary['trait']} - {trait_summary['score']:.0f}/100"):
                 st.markdown(f"**Level:** {trait_summary['level'].title()}")
                 st.markdown(f"**Description:** {trait_summary['description']}")
                 st.markdown(f"**Example:** {trait_summary['example']}")
         
-        # Overall personality type
         dominant_trait = max(scores.items(), key=lambda x: x[1])
         st.success(f"**Your dominant trait:** {TRAIT_DESCRIPTIONS[dominant_trait[0]]['name']}")
         
-        # Restart button
-        if st.button("🔄 Take Quiz Again"):
+        if st.button("Take Quiz Again"):
             st.session_state.current_question = 0
             st.session_state.responses = [None] * len(QUESTIONS)
             st.session_state.quiz_complete = False
             st.rerun()
 
 def next_question():
-    """Move to the next question or complete the quiz."""
+    # Move to next question
     if st.session_state.current_question < len(QUESTIONS) - 1:
         st.session_state.current_question += 1
     else:
