@@ -52,10 +52,6 @@ This project demonstrates advanced AI/ML capabilities using **5 different Huggin
 # Install all required dependencies
 pip install -r requirements.txt
 
-# Optional: Download additional NLTK data
-python -c "import nltk; nltk.download('punkt')"
-```
-
 ### Running the System
 ```bash
 # Run the complete AI system
