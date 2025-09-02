@@ -12,7 +12,7 @@ git clone <https://github.com/samik-py/AppliedResearchOAfa2025>
 cd submissions
 ```
 
-2. Create virtual environment (.venv), preferably through cmd + shift + p => "Python: create environment" in VsCode or through the terminal. Make sure to activate the environment by running
+2 (OPTIONAL). Create virtual environment (.venv), preferably through cmd + shift + p => "Python: create environment" in VsCode or through the terminal. Make sure to activate the environment by running
 
 ```bash
 
