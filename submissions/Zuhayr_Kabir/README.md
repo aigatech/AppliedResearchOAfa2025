@@ -6,6 +6,7 @@ This Discord bot fetches news articles from various categories, generates AI-pow
 - Manual news fetching commands
 - AI-generated summaries of articles
 - Time-based greetings
+- Performs zero-shot-classification to assign tags to the different news sources
 
 ## How to run it
 1. Install dependencies: `pip install -r requirements.txt`
