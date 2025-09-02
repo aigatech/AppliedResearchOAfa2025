@@ -1,0 +1,9 @@
+# Advanced Sports AI System - Requirements
+# Built for AI@GT Applied Research Fall 2025
+
+# Core HuggingFace and ML libraries
+transformers==4.36.0
+torch==2.1.0
+
+# Web and API utilities
+requests==2.32.5
