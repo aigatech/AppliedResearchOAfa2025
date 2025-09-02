@@ -12,12 +12,10 @@ git clone <https://github.com/samik-py/AppliedResearchOAfa2025>
 cd submissions
 ```
 
-2. Create virtual environment (.venv) and select it as the python interpreter. Make sure to create and activate the environment by running
+2. Create virtual environment (.venv), preferably through cmd + shift + p => "Python: create environment" in VsCode or through the terminal. Make sure to activate the environment by running
 
 ```bash
 
-#make virtual environment
-python -m venv .venv 
 #activate
 source .venv/bin/activate
 
