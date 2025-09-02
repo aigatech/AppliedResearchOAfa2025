@@ -22,5 +22,6 @@ This project addresses that challenge by providing a Medical Report Standardizer
 
 ## How to Run It
 Install dependencies:
+
 pip install transformers gradio
 python main.py
