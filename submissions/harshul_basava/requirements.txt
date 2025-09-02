@@ -1,0 +1,5 @@
+transformers
+sentence_transformers
+torch
+datasets
+trl
