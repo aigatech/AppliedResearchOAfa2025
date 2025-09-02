@@ -1,7 +1,8 @@
 import streamlit as st
 import time
+from transformers import pipeline
 
-# Page config
+# Page configuration
 st.set_page_config(
     page_title="Simple Personality Quiz",
     layout="wide"
@@ -15,7 +16,7 @@ QUESTIONS = [
     },
     {
         "question": "I prefer to work without a plan",
-        "trait": "conscientiousness", 
+        "trait": "conscientiousness",
         "positive": False
     },
     {
@@ -69,7 +70,7 @@ TRAIT_DESCRIPTIONS = {
         "example": "High: Enjoys art, philosophy, trying new foods. Low: Prefers familiar routines and concrete tasks."
     },
     "conscientiousness": {
-        "name": "Conscientiousness", 
+        "name": "Conscientiousness",
         "description": "How organized, responsible, and goal-directed you are",
         "high": "You are organized, responsible, and goal-directed. You plan ahead and pay attention to details.",
         "low": "You are spontaneous and flexible, preferring to go with the flow rather than stick to strict plans.",
@@ -99,17 +100,15 @@ TRAIT_DESCRIPTIONS = {
 }
 
 def calculate_scores(responses):
-    # Calculate personality scores
     scores = {trait: 0 for trait in TRAIT_DESCRIPTIONS.keys()}
     counts = {trait: 0 for trait in TRAIT_DESCRIPTIONS.keys()}
     
     for i, response in enumerate(responses):
-        if response is not None: 
+        if response is not None:
             question = QUESTIONS[i]
             trait = question["trait"]
             positive = question["positive"]
             
-            # Score: 1 for positive response to positive question, or negative response to negative question
             if (positive and response == "agree") or (not positive and response == "disagree"):
                 scores[trait] += 1
             elif (positive and response == "disagree") or (not positive and response == "agree"):
@@ -117,7 +116,6 @@ def calculate_scores(responses):
             
             counts[trait] += 1
     
-    # Calculate percentages
     percentages = {}
     for trait in scores:
         if counts[trait] > 0:
@@ -125,12 +123,11 @@ def calculate_scores(responses):
             percentage = max(0, min(100, 50 + (raw_score * 25)))
             percentages[trait] = percentage
         else:
-            percentages[trait] = 50 
+            percentages[trait] = 50
     
     return percentages
 
 def get_personality_summary(scores):
-    # personality summary
     summary = []
     
     for trait, score in scores.items():
@@ -140,7 +137,7 @@ def get_personality_summary(scores):
             level = "high"
             description = trait_info["high"]
         elif score <= 30:
-            level = "low" 
+            level = "low"
             description = trait_info["low"]
         else:
             level = "moderate"
@@ -155,6 +152,33 @@ def get_personality_summary(scores):
         })
     
     return summary
+
+@st.cache_resource
+def load_personality_analyzer():
+    return pipeline("text-classification", model="cardiffnlp/twitter-roberta-base-emotion")
+
+def analyze_personality_with_ai(scores, responses):
+    analyzer = load_personality_analyzer()
+    
+    # Create a summary text of responses for AI analysis
+    response_summary = []
+    for i, response in enumerate(responses):
+        if response is not None:
+            question = QUESTIONS[i]["question"]
+            response_summary.append(f"Question: {question} - Response: {response}")
+    
+    combined_text = " ".join(response_summary)
+    
+    # Get AI analysis
+    try:
+        ai_analysis = analyzer(combined_text[:512])  # Limit text length
+        return ai_analysis
+    except:
+        return None
+
+def get_top_traits(scores, limit=3):
+    sorted_traits = sorted(scores.items(), key=lambda x: x[1], reverse=True)
+    return sorted_traits[:limit]
 
 def main():
     st.title("Simple Personality Quiz")
@@ -203,6 +227,29 @@ def main():
         scores = calculate_scores(st.session_state.responses)
         summary = get_personality_summary(scores)
         
+        # AI Analysis Section
+        st.subheader("AI-Powered Analysis")
+        with st.spinner("Analyzing your responses with AI"):
+            ai_analysis = analyze_personality_with_ai(scores, st.session_state.responses)
+        
+        if ai_analysis:
+            st.info(f"**AI Analysis:** Your responses show {ai_analysis[0]['label'].lower()} tendencies with {ai_analysis[0]['score']:.1%} confidence.")
+        
+        # Top Traits Section
+        st.subheader("🏆 Your Top Personality Traits")
+        top_traits = get_top_traits(scores, 3)
+        
+        col1, col2, col3 = st.columns(3)
+        for i, (trait, score) in enumerate(top_traits):
+            with [col1, col2, col3][i]:
+                st.metric(
+                    label=TRAIT_DESCRIPTIONS[trait]["name"],
+                    value=f"{score:.0f}/100",
+                    help=TRAIT_DESCRIPTIONS[trait]["description"]
+                )
+        
+        # Detailed Results
+        st.subheader("Results")
         for trait_summary in summary:
             with st.expander(f"{trait_summary['trait']} - {trait_summary['score']:.0f}/100"):
                 st.markdown(f"**Level:** {trait_summary['level'].title()}")
@@ -219,7 +266,6 @@ def main():
             st.rerun()
 
 def next_question():
-    # Move to next question
     if st.session_state.current_question < len(QUESTIONS) - 1:
         st.session_state.current_question += 1
     else:
