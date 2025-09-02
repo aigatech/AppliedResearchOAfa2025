@@ -7,6 +7,8 @@ from transformers import pipeline
 load_dotenv()
 
 summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
+classifier = pipeline("zero-shot-classification", model="facebook/bart-large-mnli")
+
 
 
 VALID_CATEGORIES = [
@@ -55,6 +57,12 @@ async def fetch_news(topics=["technology"], max_per_category=5):
                             max_len = min(80, input_length // 2 + 20)
                             summary = summarizer(text, max_length=max_len, min_length=15, do_sample=False)[0]["summary_text"]
 
+
+                            # Zero-shot classification for tags
+                            labels = ["technology", "science", "business", "health", "politics", "sports", "entertainment"]
+                            classification_result = classifier(text, candidate_labels=labels, multi_label=True)
+                            tags = [label for label, score in zip(classification_result["labels"], classification_result["scores"]) if score > 0.4]
+
                             processed_articles.append({
                                 "title": article["title"],
                                 "url": article["url"],
@@ -62,7 +70,8 @@ async def fetch_news(topics=["technology"], max_per_category=5):
                                 "category": topic.upper(),
                                 "date": parse_article_date(article.get("publishedAt")),
                                 "raw_date": article.get("publishedAt", ""),
-                                "summary": summary  # New field
+                                "summary": summary,
+                                "tags": tags  # New field
                             })
                         except Exception as e:
                             print(f"⚠️ Failed to process article: {e}")

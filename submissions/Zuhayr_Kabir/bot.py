@@ -78,12 +78,14 @@ async def auto_news():
         for article in articles:
             date_str = article["raw_date"][:10] if article["raw_date"] else "Date unknown"
             title = article['title'][:60] + "..." if len(article['title']) > 60 else article['title']
+            tags_str = ", ".join(article["tags"]) if article["tags"] else "No tags"
             
             embed.add_field(
                 name=title,
                 value=(
                     f"📅 {date_str} | {article['source']}\n"
                     f"🔹 {article['summary']}\n"
+                    f"🏷️ Tags: {tags_str}\n"
                     f"[Read more]({article['url']})"
                 ),
                 inline=False
@@ -200,12 +202,14 @@ async def news(
         for article in articles[:count]:
             date_str = article["raw_date"][:10] if article["raw_date"] else "Date unknown"
             title = article['title'][:60] + "..." if len(article['title']) > 60 else article['title']
+            tags_str = ", ".join(article["tags"]) if article["tags"] else "No tags"
             
             embed.add_field(
                 name=f"{article['category']}: {title}",
                 value=(
                     f"📅 {date_str} | {article['source']}\n"
                     f"🔹 **Summary**: {article['summary']}\n"
+                    f"🏷️ **Tags**: {tags_str}\n"
                     f"[Read more]({article['url']})"
                 ),
                 inline=False
@@ -247,8 +251,10 @@ async def _demo(categories: str = "technology", count: int = 3):
     print(f"\n=== Demo: {count} summarized articles ===")
     for a in articles[:count]:
         date_str = (a.get("raw_date") or "")[:10] or "Date unknown"
+        tags_str = ", ".join(a["tags"]) if a["tags"] else "No tags"
         print(f"\n[{a['category']}] {a['title']} ({a['source']}, {date_str})")
         print(f"Summary: {a['summary']}")
+        print(f"Tags: {tags_str}")
         print(f"Link: {a['url']}")
 
 if __name__ == "__main__":
