@@ -1,7 +1,7 @@
 # 🌱 Plant Disease Detector
 
 ## What it does
-This Plant Disease Detector allows users to upload one or more plant images and predicts potential diseases using a Vision Transformer (ViT) model from Hugging Face.
+This Plant Disease Detector allows users to upload plant images and predict potential diseases using a Vision Transformer (ViT) model from Hugging Face.
 
 It highlights disease likelihood, provides a health status (healthy, diseased, or uncertain), and gives some recommendations for plant care.
 
