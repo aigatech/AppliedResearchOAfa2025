@@ -1,0 +1,4 @@
+spacy
+torch
+transformers
+sentence-transformers
