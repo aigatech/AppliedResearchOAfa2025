@@ -1,0 +1,6 @@
+my_env/
+.env/
+*.env
+.gradio
+*.wav
+*.png
