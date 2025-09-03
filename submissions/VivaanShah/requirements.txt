@@ -1,0 +1,6 @@
+transformers>=4.30.0
+torch>=2.0.0
+soundfile>=0.12.0
+huggingface-hub>=0.14.0
+gradio>=3.0.0
+sentencepiece>=0.1.99 
