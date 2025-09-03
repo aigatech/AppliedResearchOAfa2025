@@ -12,5 +12,8 @@ Implements a supervised learning approach using XGBoost to perform binary classi
 - Ensure the notebook is using the conda env `georgia-tech-ai-oa` 
 - Run full notebook.
 
+## Note: For readability within Github, I included the Jupyter notebook file converted to a python script
+File name: `submissions/brayckner_bueres_torres/anom_detection_script.py`
+
 ## HuggingFace Integration
 - Uses HuggingFace `datasets` for data loading the `abmallick/network-traffic-anomaly` dataset for this project.
