@@ -1,7 +1,5 @@
 # Personal Information Redaction Tool
-
-## Project Title
-**Personal Information Redaction Tool** - AI-powered privacy protection using HuggingFace NER models
+## AI-powered privacy protection using HuggingFace NER models
 
 ## What It Does
 A practical privacy tool that detects and redacts personal information in text using:
