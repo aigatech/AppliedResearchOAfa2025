@@ -11,7 +11,7 @@ Upload a photo of food and the app will classify what dish it is and show its co
 ```bash
 git clone https://github.com/ani369chad/AppliedResearchOAfa2025.git
 ```
-Then open the repository folder in VS Code
+Then open the cloned repository folder in VS Code
 
 ```bash
 cd submissions
