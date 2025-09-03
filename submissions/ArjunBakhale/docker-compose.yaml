@@ -1,0 +1,29 @@
+services:
+  weaviate:
+    image: semitechnologies/weaviate:1.24.4
+    ports:
+      - "8777:8080"
+    restart: unless-stopped
+    volumes:
+      - ${WEAVIATE_STORAGE_PATH:-./storage/weaviate}:/var/lib/weaviate
+    environment:
+      PERSISTENCE_DATA_PATH: '/var/lib/weaviate'
+      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'true'
+      DEFAULT_VECTORIZER_MODULE: 'none'
+      QUERY_DEFAULTS_LIMIT: 25
+      CLUSTER_HOSTNAME: 'node1'
+      DISABLE_TELEMETRY: 'true'
+      LIMIT_RESOURCES: 'true'
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/v1/.well-known/ready"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 10s
+
+# Usage:
+# Start Weaviate only:
+#   docker compose up weaviate -d
+#
+# Environment variables:
+#   WEAVIATE_STORAGE_PATH: Path for Weaviate data (default: ./storage/weaviate)
