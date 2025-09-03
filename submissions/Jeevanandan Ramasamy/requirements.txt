@@ -1,0 +1,6 @@
+transformers
+torch
+gradio
+tf-keras
+sentencepiece
+sacremoses
