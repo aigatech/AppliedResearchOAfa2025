@@ -21,6 +21,7 @@ This is a small model that learns card embeddings from past matches dating from 
   --batch_size 256 \
   --max_steps 600 \
   --d_model 16
+  ```
 4. Once all outputs are generated from the previous command and the model is trained, run the following command replacing the cards besides deck with the cards in the deck you want to counter:
 
     ```bash
@@ -31,6 +32,7 @@ This is a small model that learns card embeddings from past matches dating from 
   --card_map "./HUGGINGFACECSV.csv" \
   --deck "Knight, Archers, Fireball, Cannon, Ice Spirit, Musketeer, The Log, Hog Rider" \
   --top 3
+  ```
 5. You'll see the target deck (the one you're trying to counter) and the top 3 counter decks with the probability of those decks winning, ordered from best to worst in your command line if everything was successful.
 
 #### Note: I included the CardKey.csv in my commit since that information wasn't readily available on hugging face and required some digging on the internet. Luckily, the 26 million to 28 million id system in the hugging face dataset is a standardized classified for clash royale cards.
