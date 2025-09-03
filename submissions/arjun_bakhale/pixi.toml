@@ -1,0 +1,55 @@
+[project]
+authors = ["Arjun Bakhale <arjun.bakhale@gmail.com>"]
+channels = ["conda-forge", "pytorch", "huggingface"]
+name = "handwritten-notes-rag"
+platforms = ["osx-arm64", "linux-aarch64", "linux-64", "osx-64"]
+version = "0.1.0"
+
+[dependencies]
+# Python version constraint
+python = "3.11.*"
+
+# Core packages from conda-forge
+pandas = ">=2.2.0"
+numpy = "<2.0.0"
+pillow = ">=9.5.0"
+tqdm = ">=4.65.0"
+
+# PyTorch for ML models
+pytorch = ">=2.0.0"
+torchvision = ">=0.15.0"
+
+[pypi-dependencies]
+# OCR and ML
+transformers = ">=4.36.0"
+huggingface_hub = ">=0.17.0"
+sentence-transformers = ">=2.2.0"
+
+# PDF Processing
+PyMuPDF = ">=1.23.0"
+pdf2image = ">=1.16.0"
+
+# Vector Database (from local-rag)
+weaviate-client = ">=3.26.7,<4.0.0"
+
+# Utilities
+python-dotenv = ">=1.0.0"
+rich = ">=13.0.0"
+
+# Testing
+pytest = ">=7.0.0"
+
+[tasks]
+# Main pipeline runner
+run = "python handwritten_notes_runner.py"
+
+# Individual components
+scan = "python -m scraping.pdf_scanner"
+ocr = "python -m scraping.handwriting_ocr" 
+index = "python -m indexing.notes_indexer"
+
+# Testing
+test = "pytest tests/"
+
+# Development
+dev = "python handwritten_notes_runner.py --debug"

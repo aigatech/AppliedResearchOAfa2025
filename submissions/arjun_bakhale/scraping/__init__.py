@@ -1,0 +1,1 @@
+# Scraping package for handwritten notes pipeline

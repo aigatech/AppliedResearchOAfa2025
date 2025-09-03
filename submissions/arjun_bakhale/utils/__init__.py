@@ -1,0 +1,1 @@
+# Utils package for handwritten notes RAG pipeline
