@@ -1,0 +1,21 @@
+name: georgia-tech-ai-oa
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - xgboost
+  - jupyter
+  - pip:
+      - transformers
+      - sentence-transformers
+      - datasets
+      - huggingface-hub
+      - gradio
+      - torch
+      - tokenizers
