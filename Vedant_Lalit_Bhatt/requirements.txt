@@ -1,0 +1,5 @@
+gradio==4.29.0
+transformers==4.41.2
+wikipedia-api==0.7.1
+spacy==3.7.5
+torch==2.3.0
