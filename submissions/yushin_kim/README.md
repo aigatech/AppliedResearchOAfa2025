@@ -1,9 +1,9 @@
 # 🧩 Word Clue
 
 **Word Clue** is a lightweight, text-based mystery game inspired by the classic *Clue* board game.
-Your goal is to sequentially uncover **who the culprit is, where the crime took place, and what weapon was used** inside a mysterious mansion.
+Your goal is to sequentially uncover the **culprit**, the **crime scene**, and the **weapon** used inside a mysterious mansion.
 
-You progress by choosing words as clues. Each word you provide is compared against hidden attributes of the true culprit, place, and weapon. The system gives you feedback about how close your clue is, guiding your deduction step by step.
+You progress by choosing words as clues. Each word you provide is compared against hidden attributes of the true culprit, place, and weapon. The system gives you feedback about how close your clue is, guiding your deduction step by step. The game increases in difficulty as you advance: first 5 culprits, then 6 places, and finally 7 weapons.
 
 
 ## 📸 Example
