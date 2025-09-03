@@ -114,7 +114,7 @@ The Georgia Institute of Technology is a public research university and institut
 ## Troubleshooting ✨
 
 ### "Gated repo" Error
-- Only affects the "balanced" model (Gemma 3 270M)
+- Only affects the Gemma 3 270M model
 - Ensure you've requested access to `google/gemma-3-270m` on Hugging Face
 - Run `huggingface-cli login` and authenticate
 - Verify with `huggingface-cli whoami`
@@ -130,17 +130,3 @@ The Georgia Institute of Technology is a public research university and institut
 - Implement question type selection (multiple choice, fill-in-blank)
 - Add web interface for easier usage
 - Support for PDF and URL inputs
-
-## Requirements ⭐
-
-- Python 3.9+
-- Hugging Face account and token
-- Disk space for model
-
-## Model Requirements
-
-| Model | Size | Authentication | Use Case |
-|-------|------|----------------|----------|
-| DistilGPT-2 | 82M | ❌ None | Fast generation, basic quality |
-| Gemma 3 270M | 270M | ✅ Required | Balanced speed/quality |
-| DialoGPT Medium | 345M | ❌ None | Higher quality, slower |
