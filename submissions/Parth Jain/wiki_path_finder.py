@@ -37,7 +37,7 @@ def find_path(start, end, output):
         score, path = heapq.heappop(queue)
         current = path[-1]
 
-        output(f'Checking path: {" -> ".join(path)} (similarity: {score:.4f})')
+        output(f'Checking path: {" -> ".join(path)} (similarity: {-score:.4f})')
 
         if current in visited:
             continue
@@ -51,7 +51,7 @@ def find_path(start, end, output):
 
         for l, s in ranked:
             if l not in visited:
-                heapq.heappush(queue, (s, path + [l]))
+                heapq.heappush(queue, (-s, path + [l]))
 
     return None
 
