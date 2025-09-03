@@ -6,7 +6,13 @@ class SentimentAnalyzer:
         """
         Setting up the pipeline for sentiment analysis
         """
-        self.sentiment_pipeline = pipeline("sentiment-analysis", model=model_name)
+        self.sentiment_pipeline = pipeline(
+            "sentiment-analysis",
+            model=model_name,
+            tokenizer=model_name,
+            truncation=True, 
+            max_length=512    
+        )
         self.batch_size = batch_size
         self.conf_threshold = confidence_threshold
         self.log_file = log_file

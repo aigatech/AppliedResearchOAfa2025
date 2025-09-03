@@ -1,13 +1,16 @@
 import csv
 
-def save_to_csv(filename, texts, sentiments, summaries):
+def save_to_csv(results, csv_path):
     """
     Save results of analysis to a CSV file (-save tag) 
     """
-    with open(filename, "w", newline = "", encoding = "utf-8") as f:
-        writer = csv.writer(f)
-        writer.writerow(["Text", "Sentiment", "Score", "Summary"])
-        for text, sentiment, summary in zip(texts, sentiments, summaries):
-            writer.writerow([text, sentiment['label'], sentiment['score'], summary])
-    
-    print(f"Results have been saved to {filename}")
+    if not results:
+        return
+
+    keys = results[0].keys()
+    with open(csv_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=keys)
+        writer.writeheader()
+        writer.writerows(results)
+
+    print(f"Results have been saved to {csv_path}")

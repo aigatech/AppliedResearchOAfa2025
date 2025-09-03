@@ -15,10 +15,10 @@
 # Users can view a plot showing the proportions of positive and negative reviews for each batch.
 
 ## How to Run
-# 1. Install Dependencies - pip install -r requirements.txt
+# 1. Install Dependencies - pip3 install -r requirements.txt
 
-# 2. Analaysis of IMDB data - python main.py dataset --limit <> --save or python3 main.py dataset --limit <> --save
-#   Input the number of reviews to analyze next to limit (default is 5). Example: python main.py dataset --limit <10>
-#   The save tag is for saving results to a CSV.
+# 2. IMDB Review Analysis - python3 -m submissions.Aadharsh_Rajkumar.main
+#   Will analyze 50 reviews by default
+#   Automatically saves CSV results and plots to an outputs folder
 
-# 3. Analyze Custom Review through CLI - python main.py custom
+# 3. Analyze Custom Review through CLI - python3 -m submissions.Aadharsh_Rajkumar.cli --review "<INSERT REVIEW HERE>"

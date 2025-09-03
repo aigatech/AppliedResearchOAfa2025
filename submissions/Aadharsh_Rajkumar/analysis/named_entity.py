@@ -31,7 +31,13 @@ class NERAnalyzer:
                 if self.log_file:
                     self._log(batch[0], ents)
             all_entities.extend(filtered_batch)
-        return all_entities
+        
+        entity_counts = Counter()
+        for entities in all_entities:
+            for e in entities:
+                entity_counts[e['word']] += 1
+
+        return all_entities, entity_counts
     
     def _log(self, text, entities):
         with open(self.log_file, "a", encoding = "utf-8") as f:

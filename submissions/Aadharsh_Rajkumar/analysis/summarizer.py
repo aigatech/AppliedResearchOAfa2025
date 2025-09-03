@@ -23,13 +23,15 @@ class SummaryAnalyzer:
             for text in batch:
                 if len(text.split()) < 15:
                     summary = text
-                    results.append(summary)
+                    ratio = 1.0
+                    results.append((summary, ratio))
                     if self.log_file:
                         self._log(text, summary, skipped = True)
                 else:
                     summ = self.summarizer(text, min_length = min_length, max_length = max_length)
                     summary = summ[0]['summary_text']
-                    results.append(summary)
+                    ratio = len(summary) / len(text) if len(text) > 0 else 0 
+                    results.append((summary, ratio))                             
                     if self.log_file:
                         self._log(text, summary)
         return results
