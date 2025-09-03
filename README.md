@@ -33,6 +33,7 @@ python privacy_redactor.py --text "Hi, I'm John Smith from Google. Email me at j
 ```bash
 python privacy_redactor.py --file document.txt --output redacted_document.txt
 ```
+Under 'sample_data' folder, there are some generated example files to try for yourself.
 
 **Different mask styles:**
 ```bash
