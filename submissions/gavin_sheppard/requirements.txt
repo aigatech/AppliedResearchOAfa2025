@@ -1,0 +1,10 @@
+# Simple Sports AI Demo - Requirements
+# Built for AI@GT Applied Research Fall 2025
+
+# Core HuggingFace and ML libraries
+transformers>=4.30.0
+torch>=2.0.0
+
+# Optional: For better performance
+# accelerate>=0.20.0
+# datasets>=2.0.0
