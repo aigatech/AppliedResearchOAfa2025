@@ -26,9 +26,10 @@ Users can either **paste a row of gene expression values** or **select sample da
 
 3. **Put mini_tcga.csv in this folder called data**
 
-4. **Folder Structure: **
+4. **Folder Structure:**
+
 ```bash
-submission/
+submission/jayan
 │
 ├─ app.py                 
 ├─ main.py                
@@ -80,3 +81,4 @@ python app.py
 
 
 ---
+
