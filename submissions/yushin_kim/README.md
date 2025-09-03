@@ -8,7 +8,7 @@ You progress by choosing words as clues. Each word you provide is compared again
 
 ## 📸 Example
 
-![screenshot](screenshot.png)
+<img src="./screenshot.png" width="640px">
 
 ## 💡 What it does
 
