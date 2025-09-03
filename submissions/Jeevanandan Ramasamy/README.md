@@ -27,12 +27,13 @@ gl → en: Together with the world!
 4. Open the local Gradio link in your browser and watch your sentence get hilariously transformed.
 
 ## Features
-- Multiple translation hops with over 50 supported languages.
+- Translate your sentence across multiple hops in popular languages or all supported languages.
 - Step-by-step display of each translation.
-- Fully runs on CPU or Apple M1 (no GPU required).
-- Randomized translation path ensures a new experience each time.
+- Randomized translation paths for a fresh experience every time.
+- Works on CPU or Apple M1 (no GPU required).
 
 ## Notes
 - Uses facebook/m2m100_418M model.
 - English is always the start and end language.
-- Can adjust the number of translation hops with the slider.
+- You can adjust the number of translation hops with the slider.
+- ⚠️ Using “all supported languages” may produce weird or less accurate translations.
