@@ -33,11 +33,6 @@ venv\Scripts\activate.bat
 pip install -r requirements.txt
 ```
 
-Or install manually:
-```bash
-pip install streamlit transformers torch
-```
-
 ### 4. Run the Application
 ```bash
 streamlit run simple_personality_quiz.py
