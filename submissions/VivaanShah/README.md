@@ -14,11 +14,9 @@ This tool helps language learners by providing three key features in one interfa
 
 Unlike most translation apps, this tool creates a learning experience with visual + auditory learning:
 
-- **Beyond human capability**: Instantly generates contextual images for any concept
 - **Combines multiple AI pipelines**: Translation → Speech → Vision working together
-- **Educational focus**: Designed specifically for language learning, not just translation
-- **Visual reinforcement**: Images help cement vocabulary in long-term memory
-- **Native language support**: Includes authentic Hindi pronunciation and other target languages
+- **Visual reinforcement**:  Instantly generates contextual images for any concept to help cement vocabulary in long-term memory
+- **Native language support**: Includes authentic pronunciation for every language and native hindi writing
 
 ## How it works
 
@@ -26,29 +24,15 @@ The application uses three AI pipelines working together, with each pipeline sel
 
 ### Translation Pipeline (`utils/translator.py`)
 
-- **Models**: 4 Helsinki-NLP Opus-MT models (one for each target language)
-  - `opus-mt-en-fr` (English → French)
-  - `opus-mt-en-de` (English → German)
-  - `opus-mt-en-es` (English → Spanish)
-  - `opus-mt-en-hi` (English → Hindi)
-- **Purpose**: High-quality neural machine translation from English to target languages
-- **Components**: MarianMTModel + AutoTokenizer for each language pair
+- **Models**: 4 Helsinki-NLP Opus-MT models (one for each target language): `opus-mt-en-{language}`
 
 ### Text-to-Speech Pipeline (`utils/speak.py`)
 
-- **Models**: 4 Facebook MMS-TTS models (one for each target language)
-  - `facebook/mms-tts-fra` (French pronunciation)
-  - `facebook/mms-tts-deu` (German pronunciation)
-  - `facebook/mms-tts-spa` (Spanish pronunciation)
-  - `facebook/mms-tts-hin` (Hindi pronunciation - native support)
-- **Purpose**: Generate natural-sounding pronunciation in target languages
-- **Components**: VitsModel + VitsTokenizer for realistic speech synthesis
+- **Models**: 4 Facebook MMS-TTS models (one for each target language): `facebook/mms-tts-{language}`
 
 ### Image Generation Pipeline (`utils/drawer.py`)
 
 - **Model**: FLUX.1-dev via Hugging Face Inference API
-- **Purpose**: Create visual representations to reinforce vocabulary learning
-- **Components**: Together AI provider for high-quality image generation
 
 ## Supported Languages
 
@@ -65,24 +49,19 @@ The application uses three AI pipelines working together, with each pipeline sel
 ### Installation
 
 1. Clone and navigate to the project directory
-
 ```bash
 cd your-project-folder
 ```
-
 2. Install dependencies
-
 ```bash
 pip install -r requirements.txt
 ```
-
 3. Set up Hugging Face token
    - Get a token from [Hugging Face Settings](https://huggingface.co/settings/tokens)
    - Add your token to `main.py` by replacing the existing token on line 12:
    ```python
    os.environ["HF_TOKEN"] = "your_token_here"
    ```
-
 ### Running the Application
 
 1. Start the Gradio app
