@@ -38,7 +38,6 @@ pip install gradio==3.39.0
 
 ```
 
-4. Run the program. In the terminal, there should be a gradio link to a temporary hosting of the web app. Upload any images of plants to get 
-a determination of whether or not the plant is sick, steps to improve it's health, and a heatmap of the affected areas.
+4. Run the program. In the terminal, there should be a gradio link to a temporary hosting of the web app. The first time you run the program, it may take up a minute to set up the hosting. When it loads, upload any images of plants to get a determination of whether or not the plant is sick, steps to improve it's health, and a heatmap of the affected areas.
 
 
