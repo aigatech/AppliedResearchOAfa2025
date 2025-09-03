@@ -114,7 +114,7 @@ demo = gr.Interface(
        gr.Markdown(label="How to Make It"),
    ],
    allow_flagging="never",
-   title="Food Prediction & Unique Recipe",
+   title="Food Prediction + Recipe Generator",
    description="",
    examples=None,
 )
