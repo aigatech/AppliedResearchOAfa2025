@@ -126,9 +126,9 @@ def main():
     #printing results
     print(f"📊 Reddy Bot thinks the given Reddit thread was: {calculate_percentage(positives, number_of_sentences)}% positive and {calculate_percentage(negatives, number_of_sentences)}% negative. \n")
 
-    if positives > 60:
+    if calculate_percentage(positives, number_of_sentences) > 0.60:
         print("Overall sentiment: Positive. The positive views outweigh the negative views. ✅")
-    elif negatives > 60:
+    elif calculate_percentage(negatives, number_of_sentences) > 0.60:
         print("Overall sentiment: Negative. The negative views outweigh the positive views. ❌")
     else:
         print("Overall sentiment: Neutral / Mixed. Your thread has a healthy mix of positive and negative viewpoints. ⚖️")
