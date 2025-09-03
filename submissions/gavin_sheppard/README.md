@@ -1,10 +1,10 @@
 ## Project Title
-**Multi-Model AI Sports Analysis Platform with Advanced HuggingFace Integration**
+**Demonstrating Different AI Models In HuggingFace Using Sports**
 
 ## What It Does
 This project demonstrates advanced AI/ML capabilities using **5 different HuggingFace models** for comprehensive sports analysis. 
 
-### 🚀 Key AI Features:
+### Key AI Features:
 
 #### **1. Advanced Sentiment Analysis**
 - **Model**: `cardiffnlp/twitter-roberta-base-sentiment-latest`
