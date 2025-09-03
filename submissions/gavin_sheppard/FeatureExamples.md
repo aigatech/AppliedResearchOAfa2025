@@ -1,8 +1,5 @@
 # Advanced Sports AI System - Feature Testing Guide
 
-## 🤖 **Interactive Commands**
-## **Interactive Commands**
-
 ### **1. Sentiment Analysis**
 ```
 Your request: Analyze sentiment: LeBron James is absolutely incredible!
