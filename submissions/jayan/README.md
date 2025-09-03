@@ -18,6 +18,30 @@ Users can either **paste a row of gene expression values** or **select sample da
 
 ---
 
+## Before Running
+
+1. **Download mini_tcga.csv at this location: https://drive.google.com/file/d/1eTLBBN1EnjgCnnZRA4VI50GXKsQC9SeA/view?usp=sharing**
+
+2. **Make a folder called data**
+
+3. **Put mini_tcga.csv in this folder called data**
+
+4. **Folder Structure: **
+```bash
+submission/
+│
+├─ app.py                 
+├─ main.py                
+├─ agent.py               
+├─ nlp_agent.py           
+├─ data/
+│   └─ mini_tcga.csv      # small sample dataset (keep it small!)
+├─ models/                # saved model artifacts (ignored in submission)
+├─ requirements.txt       # all Python dependencies
+└─ README.md
+
+```
+
 ## How to Run
 
 1. **Install dependencies**:
@@ -53,5 +77,6 @@ python app.py
 * No GPU is required; all components run on CPU.
 * HuggingFace models can be swapped for smaller models (DistilBERT, MiniLM, or GPT-OSS) to reduce memory usage.
 * The app is for **educational purposes only**. Not intended as medical advice.
+
 
 ---
