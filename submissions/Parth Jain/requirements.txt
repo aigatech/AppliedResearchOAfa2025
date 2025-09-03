@@ -1,0 +1,4 @@
+wikipedia-api==0.5.8
+sentence-transformers==2.2.2
+torch>=2.0.0
+streamlit==1.30.0
