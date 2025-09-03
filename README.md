@@ -1,25 +1,28 @@
-# AI@GT Applied Research Fall 2025
-Thank you for your interest in joining AI@GT's Applied Research Team! This is an open ended assessment designed for you to demonstarte your creativity and coding ability. You will all be using [HuggingFace](https://huggingface.co/) to create a project of your choice! To ensure this assessment stays accessible, we ask all candidates to spend no more than 1.5 hours on their idea. Submissions will remain open until Wednesday Septermber 3 @11:59pm and will be reviewed on a rolling basis  
+# AI Topic Debater 
+This program is intended to simulate two debaters arguing for a Pro/Con side for a user prompted topic. The debate will last X amount of rounds specified by the user. For each round, you will ask a question to each of the debaters who will then provide a response. 
 
----
+For each round, an alignment, sentiment, and persuasiveness score will be assigned to each response. 
 
-##  Instructions
-1. Fork this repository.  
-2. Install any HuggingFace libraries you need for your project, for example:
+Alignment: measure of 0 to 1 tracking how close the produced response aligns with the side (Pro/Con) being represented
+- Ex: 1 for the Pro means its argument really aligns with the Pro side argument
+- Calculated by stance_clf using a zero-shot-classification approach
 
-   ```bash
-   pip install transformers datasets
-   
-3. Build your project in submissions/<your_full_name>/
+Sentiment: measure of 0 to 1 showing how emotionally intense the response was
+- Ex: 0 for Pro means the response was very monotone and standard
+- Calculated by sentiment
 
-## Submission
-When finished, open a Pull Request (PR) to this repo. Title your PR: "Submission: Your Name". Please include a short README.md inside your submission folder with:
-- Project title
-- What it does
-- How to run it
+Persuasiveness: a custom metric calculated by persuasiveness = alignment * sentiment
+- used for plotting quality of responses with matplotlib
 
-#### ⚠️ Important
-- **Do not commit model weights, large datasets, or your virtual environment (`venv/`, `.env/`, etc.)**.  
-- Only include the code, small config files, and instructions to re-install dependencies
+After the debate has concluded, the entire transcript will be fed to a third "judge" AI that reads through the responses and decides and winner with explanation. The user will also be prompted to give their opinion.
 
-#### Note: You don’t need a GPU to complete this! Plenty of HuggingFace models (DistilBERT, MiniLM, etc.) run well on CPU. Focus on building something small but creative! We look foward to seeing all of your ideas come to life. If you have any questions, please reach out to zishani3@gatech.edu.  
+Finally, a line plot will demonstrates the quality of persuasiveness for each AI response.
+
+# Running the Code
+Just run the file "VinhPham.py" and the program will begin in the terminal. First, type a statement you would like the AI to debate about. For example, "Phones should be allowed in school." Second, specify how many rounds (responses) each AI should provide. Once the debate begins, type out a question that you would like the AI to answer. For example, "How do phones affect learning?" This repeats until all rounds are finished. You have the chance to input which side you believe won and a third AI judge will also give its input.
+
+A final line plot will display the persuasiveness value of each response from the Pro and Con side.
+
+# Disclaimer
+The code functions correctly but the AI models seem to be too small to generate actual responses with adequate token size. The AI often hallucinates and sometimes just repeats random questions. I cut myself off around after some time elapsed, so I couldn't go back to fix the models from hallucinating. Hopefully this is a fine proof of concept 🙏.
+
