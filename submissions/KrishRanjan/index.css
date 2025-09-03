@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f0f0;
+    color: #333;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.controls input,
+.controls select,
+.controls button {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+}
+
+.controls button {
+    background: #3498db;
+    color: white;
+}
+
+.controls button:disabled {
+    background: #aaa;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid #ccc;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.metric {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.metric:last-child {
+    border-bottom: none;
+}
+
+.metric-value {
+    font-weight: bold;
+}
+
+.sentiment-positive {
+    color: green;
+}
+
+.sentiment-negative {
+    color: red;
+}
+
+.sentiment-neutral {
+    color: orange;
+}
+
+.stock-list,
+.recent-posts {
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.stock-item,
+.post-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    margin: 5px 0;
+    background: #f9f9f9;
+    border-radius: 5px;
+}
+
+.post-item.bullish {
+    border-left: 4px solid green;
+}
+
+.post-item.bearish {
+    border-left: 4px solid red;
+}
+
+.post-item.neutral {
+    border-left: 4px solid orange;
+}
+
+.post-title {
+    font-weight: bold;
+}
+
+.post-meta {
+    font-size: 0.8em;
+    color: #777;
+}

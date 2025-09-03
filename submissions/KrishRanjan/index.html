@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>WSB Analyzer</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>WSB Analyzer</h1>
+            <p>AI-Powered r/wallstreetbets sentiment analysis</p>
+        </div>
+
+        <div class="controls">
+            <input type="number" id="postLimit" value="5" min="5" max="1000" placeholder="# posts">
+            <select id="timeframe">
+                <option value="day">Last 24 hours</option>
+                <option value="week">Last week</option>
+                <option value="month">Last month</option>
+            </select>
+            <select id="sortBy">
+                <option value="hot">Hot</option>
+                <option value="new">New</option>
+                <option value="top">Top</option>
+            </select>
+            <button id="analyzeBtn" onclick="analyzeWSB()">
+                Run Analysis
+            </button>
+        </div>
+
+        <div id="dashboard" class="dashboard" style="display: none;">
+            <div class="card sentiment-overview">
+                <h3>AI Sentiment Analysis</h3>
+                <div class="metric">
+                    <span>Overall Sentiment:</span>
+                    <span id="overallSentiment" class="metric-value">-</span>
+                </div>
+                <div class="metric">
+                    <span>Bullish Posts:</span>
+                    <span id="bullishCount" class="metric-value sentiment-positive">-</span>
+                </div>
+                <div class="metric">
+                    <span>Bearish Posts:</span>
+                    <span id="bearishCount" class="metric-value sentiment-negative">-</span>
+                </div>
+                <div class="metric">
+                    <span>Neutral Posts:</span>
+                    <span id="neutralCount" class="metric-value sentiment-neutral">-</span>
+                </div>
+                <div class="metric">
+                    <span>AI Confidence:</span>
+                    <span id="aiConfidence" class="metric-value">-</span>
+                </div>
+            </div>
+
+            <div class="card top-stocks">
+                <h3>Most Mentioned Stocks</h3>
+                <div id="stockList" class="stock-list">
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Analysis Summary</h3>
+                <div class="metric">
+                    <span>Posts Analyzed:</span>
+                    <span id="postsAnalyzed" class="metric-value">-</span>
+                </div>
+                <div class="metric">
+                    <span>Unique Stocks:</span>
+                    <span id="uniqueStocks" class="metric-value">-</span>
+                </div>
+                <div class="metric">
+                    <span>Avg. Sentiment Score:</span>
+                    <span id="avgSentiment" class="metric-value">-</span>
+                </div>
+                <div class="metric">
+                    <span>Last Updated:</span>
+                    <span id="lastUpdated" class="metric-value">-</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Recent Posts</h3>
+                <div id="recentPosts" class="recent-posts">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
