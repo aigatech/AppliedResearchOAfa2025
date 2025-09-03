@@ -113,6 +113,7 @@ demo = gr.Interface(
        gr.Label(num_top_classes=1, label="Prediction"),
        gr.Markdown(label="How to Make It"),
    ],
+   allow_flagging="never",
    title="Food Classifier + Recipe",
    description="",
    examples=None,
