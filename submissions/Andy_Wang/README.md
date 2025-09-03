@@ -7,6 +7,7 @@ This project takes a football games and topics like "Georgia Tech wins against C
 
 Helps users create quick AI-assisted social media post for football games after big wins.
 
+Input: Any football topic through terminal
 Outputs: Reference article URL, Image URL, caption, and downloaded `post_image.jpg` of image in current folder
 
 ## How to run it
