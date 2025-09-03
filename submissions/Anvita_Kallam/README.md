@@ -1,8 +1,8 @@
 # 💡📝📖 Flashcard Generator 📖📝💡
 
-With the rise of short-form content, knowledge aquisition is more difficult than ever 😭. With this program 🤩, any chunk of text can be condensed into just 3 simple flashcards that capture the crux of the information.
+With the rise of short-form content, knowledge aquisition is more difficult than ever 😭. With this program 🤩, any chunk of text can be condensed into just 3 simple flashcards 🌩️ that capture the crux of the information 📓.
 
-And...since doomscrolling is so visually engaging 👀, the program (by choice) will generate a matching doodle 🖌️ for each flashcard to help you retain the info even better!
+And...since doomscrolling is so visually engaging 👀, the program (by choice) will generate a matching doodle 🖌️ for each flashcard to help you retain the info even better 🤓!
 
 ## Features ✨
 
