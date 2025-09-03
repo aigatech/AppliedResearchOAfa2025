@@ -1,6 +1,8 @@
 # 💡📝📖 Flashcard Generator 📖📝💡
 
-A Python application that generates study flashcards from any text input using multiple Hugging Face AI models with speed vs. quality tradeoffs.
+With the rise of short-form content, knowledge aquisition is more difficult than ever. With this program, any chunk of text can be condensed into just 3 simple flashcards that capture the crux of the information.
+
+And...since doomscrolling is so visually engaging, the program (by choice) will generate a matching doodle for each flashcard to help you retain the info even better!
 
 ## Features ✨
 
