@@ -1,0 +1,42 @@
+   HIGHLIGHTS
+ Undergraduate Computer Science student at Georgia Tech with a keen interest in Machine Learning, Explainable AI, and Large Language Models. Conducted two collegiate-level Machine Learning research projects, with first author paper published in the 2024 IEEE International Conference in Big Data.
+ SKILLS
+Programming Languages: Python, Java, Javascript, C++
+Python Libraries:
+PyTorch, Transformers, TensorFlow, Pandas, Numpy, Scikit Learn, Tkinter, Flask, Matplotlib, OpenCV
+Javascript Libraries:
+ReactJS
+Adobe Softwares:
+Photoshop, After Effects, Illustrator, Indesign, Lightroom
+AWARDS
+First author CS paper accepted to the 2024 IEEE International Conference on Big Data (2024)
+National Merit Scholar (2025)
+NY Upstate JSHS Finalist in CS (2024)
+Valedictorian
+USA Computing Olympiad Silver (2024)
+LANGUAGES
+English, Mandarin, French
+EXPERIENCE
+AI/ML Research, Machine Learning in inflation forecasting JUNE 2024 - MARCH 2025
+● Developed a Transformer Neural Network (TNN) with a novel mixed-frequency alignment mechanism for inflation forecasting leveraging mixed-frequency economic indicators.
+● Exceeded SOTA forecasting accuracy; won NY Upstate JSHS Finalist.
+AI/ML Research, Generating natural language descriptions of Machine
+Learning models with LLMs
+DECEMBER 2023 - DECEMBER 2024
+● Researched novel methods in Explainable AI (XAI), developing a pipeline involving sampling algorithms integrated with LLMs to create natural language descriptions.
+● First author paper published in the 2024 IEEE International Conference on Big Data.
+EDUCATION
+Georgia Institute of Technology, Bachelor of Science, Computer Science | AUGUST 2025 - PRESENT
+Horace Greeley High School | JUNE 2021 - JUNE 2025 | Unweighted GPA:4.0 ACTIVITIES
+Neuryte — Co-founder & Web App Developer
+● Developed an interactive web app leveraging simulations to help users visualize the internal structure of neural networks, backpropagation, and training mechanisms.
+● Coded with Flask backend and ReactJS frontend, hosted through Google Cloud.
+● Gained 2k+ views in 6 months.
+Independent coding projects
+● Built a calendar assistant using Google Calendar API and Notion API to automatically grab/record tasks, timeblock, and optimize daily schedules.
+● Built a series of local LLM agents using Transformers library, such as for large document Q&A and summarization.
+Science Greeley — Editor-in-Chief & Co-founder
+● Co-founded the official STEM magazine at my high school, led as Editor-in-Chief.
+● Grew the club to 50+ active members, and published 4 issues.
+● Won the National Scholastic Press Association (NSPA) Pacemaker Finalist award in both
+  2023 and 2024, and the NSPA Leadership award in 2024.

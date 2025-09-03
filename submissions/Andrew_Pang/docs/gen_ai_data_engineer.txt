@@ -1,0 +1,60 @@
+Full job description
+Who Are We?
+
+Taking care of our customers, our communities and each other. That’s the Travelers Promise. By honoring this commitment, we have maintained our reputation as one of the best property casualty insurers in the industry for over 160 years. Join us to discover a culture that is rooted in innovation and thrives on collaboration. Imagine loving what you do and where you do it.
+
+Compensation Overview
+
+The annual base salary range provided for this position is a nationwide market range and represents a broad range of salaries for this role across the country. The actual salary for this position will be determined by a number of factors, including the scope, complexity and location of the role; the skills, education, training, credentials and experience of the candidate; and other conditions of employment. As part of our comprehensive compensation and benefits program, employees are also eligible for performance-based cash incentive awards.
+
+Salary Range
+
+$106,300.00 - $175,400.00
+Target Openings
+
+1
+What Is the Opportunity?
+
+Travelers is seeking a (Gen AI) Data Engineer I to join our dynamic team. In this role, you will be instrumental in developing and maintaining robust, scalable, and efficient solutions to support our Generative AI initiatives. You will collaborate closely with data scientists, machine learning engineers, and software developers to design and implement innovative data-driven applications and systems.
+What Will You Do?
+
+Develop, and deploy solutions for Gen AI data engineering activities, including data ingestion, processing, storage, and analysis.
+Collaborate with data scientists and engineers to create Retrieval-Augmented Generation (RAG) solutions and integrate LLM models into production-grade applications.
+Develop APIs and microservices to facilitate data access and integration across various components of the Gen AI platform.
+Implement best practices for code quality, testing, and documentation to ensure the reliability, maintainability, and scalability of our software systems.
+Stay up-to-date with the latest trends and technologies in data engineering and Gen AI, applying them to enhance our platform.
+What Will Our Ideal Candidate Have?
+
+Bachelor's degree in Computer Science, Engineering, or a related field; Master's degree preferred.
+Four years of programming/development experience preferred.
+Proven experience as a Full Stack Developer or similar role, with a strong focus on data engineering and Gen AI applications.
+Proficiency in programming languages such as Python and SQL.
+Experience with front-end frameworks/libraries like React.js and back-end frameworks/libraries.
+Familiarity with cloud platforms such as AWS and related services (e.g., AWS Lambda, S3, EC2, RDS, Redshift).
+Experience with containerization and orchestration technologies such as Docker, Kubernetes, or ECS.
+Strong understanding of database systems and data processing frameworks (e.g., SQL, NoSQL, Spark, Databricks).
+Good understanding and experience of Gen AI concepts like Agentic Frameworks, RAG, LLM, Chunking, and Hyper-parameters.
+Excellent problem-solving skills and ability to work in a fast-paced, collaborative environment.
+Strong communication and interpersonal skills, with the ability to effectively interact with cross-functional teams.
+What is a Must Have?
+
+Bachelor’s degree or equivalent training with data tools, techniques, and manipulation.
+Four years of data engineering or equivalent experience.
+What Is in It for You?
+
+Health Insurance: Employees and their eligible family members – including spouses, domestic partners, and children – are eligible for coverage from the first day of employment.
+Retirement: Travelers matches your 401(k) contributions dollar-for-dollar up to your first 5% of eligible pay, subject to an annual maximum. If you have student loan debt, you can enroll in the Paying it Forward Savings Program. When you make a payment toward your student loan, Travelers will make an annual contribution into your 401(k) account. You are also eligible for a Pension Plan that is 100% funded by Travelers.
+Paid Time Off: Start your career at Travelers with a minimum of 20 days Paid Time Off annually, plus nine paid company Holidays.
+Wellness Program: The Travelers wellness program is comprised of tools, discounts and resources that empower you to achieve your wellness goals and caregiving needs. In addition, our mental health program provides access to free professional counseling services, health coaching and other resources to support your daily life needs.
+Volunteer Encouragement: We have a deep commitment to the communities we serve and encourage our employees to get involved. Travelers has a Matching Gift and Volunteer Rewards program that enables you to give back to the charity of your choice.
+Employment Practices
+
+Travelers is an equal opportunity employer. We value the unique abilities and talents each individual brings to our organization and recognize that we benefit in numerous ways from our differences.
+
+In accordance with local law, candidates seeking employment in Colorado are not required to disclose dates of attendance at or graduation from educational institutions.
+
+If you are a candidate and have specific questions regarding the physical requirements of this role, please send us an email so we may assist you.
+
+Travelers reserves the right to fill this position at a level above or below the level included in this posting.
+
+To learn more about our comprehensive benefit programs please visit http://careers.travelers.com/life-at-travelers/benefits/.

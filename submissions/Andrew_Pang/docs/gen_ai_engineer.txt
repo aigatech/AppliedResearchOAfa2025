@@ -1,0 +1,38 @@
+Generative AI Engineer Job Description Template
+Job Title: Generative AI Engineer
+Location: Remote / Hybrid / [City, State]
+Job Type: Full-time
+Department: AI Research / Machine Learning / Engineering
+
+About the Role
+We are seeking a Generative AI Engineer to design, develop, and deploy state-of-the-art generative models across text, image, code, or audio domains. You’ll work with large language models (LLMs), diffusion models, or transformers to create intelligent applications and systems that push the boundaries of creativity, automation, and human-computer interaction.
+
+This role is ideal for engineers passionate about applying deep learning and generative modeling to build tools, products, and workflows with real-world impact.
+
+Key Responsibilities
+Design, fine-tune, and deploy generative models using architectures such as GPT, Stable Diffusion, or custom transformers
+Implement and optimize inference pipelines for real-time or batch generation (text, image, code, audio)
+Collaborate with researchers, product teams, and designers to integrate generative AI into products or user-facing tools
+Build data pipelines for model training, evaluation, and continual learning
+Monitor model performance, address bias or hallucination issues, and improve output reliability
+Stay current with research in generative AI and contribute to model selection, benchmarking, and experimentation
+Qualifications
+Bachelor’s or Master’s degree in Computer Science, Machine Learning, or a related field
+Strong understanding of deep learning and transformer architectures
+Proficiency in Python and ML libraries like PyTorch, TensorFlow, Hugging Face Transformers
+Experience working with LLMs, diffusion models, or generative adversarial networks (GANs)
+Familiarity with prompt engineering, fine-tuning, and evaluation methods for generative outputs
+Knowledge of model deployment (e.g., ONNX, TorchServe, Triton) and performance optimization techniques
+Preferred Qualifications
+Experience building generative tools for content creation, chatbots, code generation, or digital art
+Familiarity with vector databases, embeddings, and retrieval-augmented generation (RAG)
+Contributions to open-source ML projects or published research
+Awareness of ethical considerations, including output filtering, consented data use, and generative misuse risks
+What We Offer
+Access to cutting-edge models and GPU infrastructure
+Opportunity to work on production-grade generative AI systems
+Collaborative environment with researchers, engineers, and product innovators
+Competitive compensation, flexible schedules, and growth opportunities
+Support for research, open-source contributions, and conference attendance
+How to Apply
+Submit your resume and any relevant projects, GitHub repositories, or generative model demos you’ve built or contributed to.

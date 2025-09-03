@@ -1,0 +1,25 @@
+ JOB DESCRIPTION
+Your Title: Software Engineer
+Job Location: Knaresborough, North Yorkshire, flexible working Guide Salary Range: £30,000 - £40,000
+Want to work for a company that’s at the forefront of geospatial services in the Electric Utilities market? Are you an ambitious and dedicated Software Developer? Want to learn how you can help us to adapt and evolve our pioneering technology? At NM Group we offer a career, not just engineering experience, we value personality and future potential.
+What you will do
+NM Group is looking to hire an engaged and enthusiastic Software Engineer to join our established and dynamic group. This role will be tailored to suit the successful candidate. We work with people to develop a broad range of skills with full stack scope. If you’re passionate about Front End UI engineering but want to gain some backend experience on the server side or you’d like to develop a broader range of skills, we’ll make this possible.
+What skills and experience you should bring:
+● A high degree of innovation, focus, flexibility, and drive.
+● Able to solve complex problems.
+● Excellent written, oral and visual communication skills to explain complex information.
+● Enjoys and works well in a team-based environment, as well as being self-motivated to individually succeed.
+● Understands and implements best practices of modern Software Engineering including Agile Software Development, Automated Testing, Configuration Management principles and DevOps.
+● Ability to organise, plan and manage time, both whilst working alone and within a team, to meet deadlines.
+● Has the rigour and care to manage and control changes to development, testing and production environments.
+Desirable skills & experience
+● C# / .NET (some experience with WPF applications desirable but not essential)
+● Python
+● Relational databases, in particular PostgreSQL / PostGIS
+● Docker, Git, Jira
+Other skills and experience that would bring value to NMGroup include:
+● Experience with AWS, e.g. RDS, Lambda, S3
+● Web development including such as HTML/CSS, JavaScript, PHP
+● Experience working with geospatial software and data
+About NM Group:
+NM Group optimises the performance of electricity networks by remotely sensing and serving the position and condition of our client's assets. From mapping and presenting spatial data on an electrical network through to modelling and displaying a 3D virtual network environment we deliver value to electricity network operators. Further information can be found on the company website.
