@@ -1,0 +1,41 @@
+Employee Directory - Confidential
+
+John Smith
+Position: Senior Software Engineer
+Department: Engineering
+Email: john.smith@techcorp.com
+Phone: (555) 123-4567
+Address: 123 Main Street, San Francisco, CA 94105
+SSN: 987-65-4321
+Hire Date: 01/15/2020
+Salary: $120,000
+Manager: Jane Doe (jane.doe@techcorp.com)
+
+Sarah Williams
+Position: Marketing Manager
+Department: Marketing
+Email: sarah.williams@techcorp.com
+Phone: (555) 234-5678
+Address: 789 Pine Avenue, Los Angeles, CA 90210
+SSN: 456-78-9012
+Hire Date: 03/22/2019
+Salary: $95,000
+Manager: Mike Johnson (mike.johnson@techcorp.com)
+
+David Brown
+Position: Data Analyst
+Department: Analytics
+Email: david.brown@techcorp.com
+Phone: (555) 345-6789
+Address: 321 Elm Street, Seattle, WA 98101
+SSN: 789-01-2345
+Hire Date: 07/10/2021
+Salary: $85,000
+Manager: Lisa Chen (lisa.chen@techcorp.com)
+
+Company Information:
+TechCorp Inc.
+1234 Innovation Drive
+Austin, TX 78701
+Phone: (512) 555-0000
+Website: https://www.techcorp.com

@@ -1,0 +1,28 @@
+Customer Feedback Report - Q4 2024
+
+Customer: Jennifer Martinez
+Email: jennifer.martinez@gmail.com
+Phone: (305) 555-7890
+Order #: 12345
+Date: 11/28/2024
+
+Feedback:
+"I had an excellent experience with your service! The representative, 
+Alex Thompson, was very helpful. I live in Miami, FL and the delivery 
+was fast. My credit card ending in 4532 was charged correctly.
+
+However, I had an issue with the product quality. The item arrived 
+damaged. I called your support line at (800) 555-1234 and spoke with 
+Maria Rodriguez who resolved the issue quickly.
+
+I would definitely recommend your company to friends and family.
+My address is 567 Ocean Drive, Miami, FL 33139 if you need to send 
+a replacement."
+
+Rating: 4/5 stars
+
+Follow-up Actions:
+- Send replacement product to customer
+- Contact: jennifer.martinez@gmail.com
+- Reference Order: 12345
+- Assigned to: Customer Service Team

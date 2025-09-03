@@ -1,25 +1,67 @@
-# AI@GT Applied Research Fall 2025
-Thank you for your interest in joining AI@GT's Applied Research Team! This is an open ended assessment designed for you to demonstarte your creativity and coding ability. You will all be using [HuggingFace](https://huggingface.co/) to create a project of your choice! To ensure this assessment stays accessible, we ask all candidates to spend no more than 1.5 hours on their idea. Submissions will remain open until Wednesday Septermber 3 @11:59pm and will be reviewed on a rolling basis  
+# Personal Information Redaction Tool
+## AI-powered privacy protection using HuggingFace NER models
 
----
+## What It Does
+A practical privacy tool that detects and redacts personal information in text using:
+- **HuggingFace NER**: Uses `dslim/bert-base-NER` to detect names, organizations, and locations
+- **Regex Patterns**: Detects emails, phone numbers, SSNs, credit cards, URLs, IP addresses
+- **Multiple Mask Styles**: Choose from `[REDACTED]`, ★, █, •, #, X
+- **Real-World Use Cases**: Medical records (HIPAA), employee data, customer feedback, research data, legal documents
 
-##  Instructions
-1. Fork this repository.  
-2. Install any HuggingFace libraries you need for your project, for example:
+**Detects**: Names, organizations, locations, emails, phones, SSNs, credit cards, URLs, IP addresses, dates, ZIP codes
 
-   ```bash
-   pip install transformers datasets
-   
-3. Build your project in submissions/<your_full_name>/
+## How to Run It
 
-## Submission
-When finished, open a Pull Request (PR) to this repo. Title your PR: "Submission: Your Name". Please include a short README.md inside your submission folder with:
-- Project title
-- What it does
-- How to run it
+### Prerequisites
+```bash
+pip install -r requirements.txt
+```
 
-#### ⚠️ Important
-- **Do not commit model weights, large datasets, or your virtual environment (`venv/`, `.env/`, etc.)**.  
-- Only include the code, small config files, and instructions to re-install dependencies
+### Basic Usage
 
-#### Note: You don’t need a GPU to complete this! Plenty of HuggingFace models (DistilBERT, MiniLM, etc.) run well on CPU. Focus on building something small but creative! We look foward to seeing all of your ideas come to life. If you have any questions, please reach out to zishani3@gatech.edu.  
+**Demo with real-world scenarios:**
+```bash
+python privacy_redactor.py --demo
+```
+
+**Redact text:**
+```bash
+python privacy_redactor.py --text "Hi, I'm John Smith from Google. Email me at john@google.com or call (555) 123-4567."
+```
+
+**Process files:**
+```bash
+python privacy_redactor.py --file document.txt --output redacted_document.txt
+```
+Under 'sample_data' folder, there are some generated example files to try for yourself.
+
+**Different mask styles:**
+```bash
+python privacy_redactor.py --text "Contact Sarah at sarah@company.com" --mask-style stars
+python privacy_redactor.py --text "Contact Sarah at sarah@company.com" --mask-style blocks
+```
+
+**Batch process directory:**
+```bash
+python privacy_redactor.py --batch-dir sample_data --mask-style redacted
+```
+
+**Get detailed analysis:**
+```bash
+python privacy_redactor.py --text "My SSN is 123-45-6789" --format json --summary
+```
+
+### Example Output
+```bash
+Input: "Hi, my name is John Smith and I work at Google. Email me at john.smith@google.com or call (555) 123-4567."
+```
+```bash
+Output: "Hi, my name is [REDACTED:PER] and I work at [REDACTED:ORG]. Email me at [REDACTED:EMAIL] or call [REDACTED:PHONE]."
+```
+
+### Example Real-World Use Cases
+- **Medical Records**: HIPAA compliance for patient data
+- **Employee Data**: HR privacy protection
+- **Customer Feedback**: Data anonymization for analysis
+- **Research Data**: Participant privacy protection
+- **Legal Documents**: Case file protection
