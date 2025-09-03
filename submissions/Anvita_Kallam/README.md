@@ -95,7 +95,7 @@ When prompted, paste your source text and press Enter. The program will generate
 Generate a doodle image per flashcard using Stable Diffusion (`runwayml/stable-diffusion-v1-5`).
 
 ```bash
-python main.py --model fast --text "Quantum entanglement means two particles share linked states." --doodle
+python main.py --model fast --text "your text here" --doodle
 ```
 
 ### Behavior
