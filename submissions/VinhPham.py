@@ -16,7 +16,6 @@ for rnd in range(1, rounds + 1):
     question = input("Enter a question to ask the debaters: ")
 
     for side, model in sides.items():
-        # Simple prompt without file reading
         with open ("prompt.txt", "r") as file:
             directions = file.read()
         prompt = (f"Directions: {directions}\n"

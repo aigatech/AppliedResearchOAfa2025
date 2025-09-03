@@ -18,6 +18,12 @@ After the debate has concluded, the entire transcript will be fed to a third "ju
 
 Finally, a line plot will demonstrates the quality of persuasiveness for each AI response.
 
+# Installation
+
+- pip install transformers
+- pip install torch
+- pip install matplotlib
+
 # Running the Code
 Just run the file "VinhPham.py" and the program will begin in the terminal. First, type a statement you would like the AI to debate about. For example, "Phones should be allowed in school." Second, specify how many rounds (responses) each AI should provide. Once the debate begins, type out a question that you would like the AI to answer. For example, "How do phones affect learning?" This repeats until all rounds are finished. You have the chance to input which side you believe won and a third AI judge will also give its input.
 
