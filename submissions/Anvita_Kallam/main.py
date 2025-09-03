@@ -245,6 +245,59 @@ def print_model_options() -> None:
     print()
 
 
+def load_sd_pipeline() -> Any:
+    """Load Stable Diffusion v1-5 pipeline, CPU by default. Returns the pipeline or raises with guidance."""
+    try:
+        from diffusers import StableDiffusionPipeline
+    except Exception as e:
+        raise RuntimeError("diffusers is not installed. Please install it via 'pip install diffusers'.")
+
+    sd_token = os.environ.get("HF_TOKEN")  # if user has gated access
+    try:
+        pipe = StableDiffusionPipeline.from_pretrained(
+            "runwayml/stable-diffusion-v1-5",
+            use_auth_token=sd_token if sd_token else None,
+            safety_checker=None,
+        )
+    except Exception as e:
+        message = str(e).lower()
+        if "gated" in message or "unauthorized" in message or "forbidden" in message or "401" in message:
+            print("Error: Access to 'runwayml/stable-diffusion-v1-5' is gated or unauthorized.")
+            print("Please request access on the model page and login via 'huggingface-cli login'.")
+        raise
+
+    # Optimize for CPU-only by enabling attention slicing
+    try:
+        pipe = pipe.to("cpu")
+        pipe.enable_attention_slicing()
+    except Exception:
+        pass
+    return pipe
+
+
+def generate_doodles(answers: List[str]) -> List[str]:
+    """Generate a doodle image per answer using SD v1-5. Returns list of saved file paths."""
+    pipe = load_sd_pipeline()
+    saved_files: List[str] = []
+    for idx, answer_text in enumerate(answers, start=1):
+        print(f"🎨 Generating doodle for flashcard {idx}...")
+        prompt = answer_text if answer_text.strip() else "abstract minimal doodle"
+        try:
+            image = pipe(prompt, num_inference_steps=20, guidance_scale=7.0).images[0]
+        except Exception as e:
+            print(f"Failed to generate doodle for card {idx}: {e}")
+            saved_files.append("<generation failed>")
+            continue
+        filename = f"flashcard_{idx}.png"
+        try:
+            image.save(filename)
+            saved_files.append(filename)
+        except Exception as e:
+            print(f"Failed to save doodle for card {idx}: {e}")
+            saved_files.append("<save failed>")
+    return saved_files
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate flashcards from text using AI models")
     parser.add_argument("--model", choices=list(MODEL_CONFIGS.keys()), default="balanced",
@@ -252,6 +305,7 @@ def main() -> None:
     parser.add_argument("--list-models", action="store_true", help="List available models and exit")
     parser.add_argument("--benchmark", action="store_true", help="Run benchmark on all models")
     parser.add_argument("--text", type=str, help="Text to process (if not provided, will prompt)")
+    parser.add_argument("--doodle", action="store_true", help="Enable Flashcard Doodle Mode (generate SD images)")
     
     args = parser.parse_args()
     
@@ -261,6 +315,8 @@ def main() -> None:
     
     print("💡📝📖 Flashcard Generator 📖📝💡")
     print(f"Selected model: {MODEL_CONFIGS[args.model]['name']}")
+    if args.doodle:
+        print("Doodle Mode: ON (Stable Diffusion v1-5)")
     print()
     
     if args.benchmark:
@@ -285,9 +341,21 @@ def main() -> None:
     print(f"\nGenerating 3 flashcards using {MODEL_CONFIGS[args.model]['name']}...\n")
     cards, generation_time = generate_flashcards(source_text, args.model)
 
+    # Optionally generate doodles
+    doodle_files: List[str] = []
+    if args.doodle:
+        try:
+            doodle_files = generate_doodles([a for (_, a) in cards])
+        except Exception as e:
+            print(f"Doodle Mode error: {e}")
+            doodle_files = ["<doodle error>"] * len(cards)
+
     for idx, (q, a) in enumerate(cards, start=1):
         print(f"{idx}) Q: {q}")
-        print(f"   A: {a}\n")
+        print(f"   A: {a}")
+        if args.doodle and idx - 1 < len(doodle_files):
+            print(f"   🖼️ [Doodle saved at {doodle_files[idx - 1]}]")
+        print()
     
     print(f"⏱️  Generation time: {generation_time:.2f} seconds")
 
