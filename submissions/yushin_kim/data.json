@@ -1,0 +1,51 @@
+{
+  "NUM_CULPRIT_SAMPLE": 5,
+  "CULPRITS": {
+    "Chef": ["kitchen", "knife", "pan", "recipe", "spice", "apron", "heat", "oil"],
+    "Doctor": ["hospital", "medicine", "scalpel", "white", "sterile", "patient", "healing", "clinic"],
+    "Librarian": ["library", "books", "quiet", "reading", "shelves", "catalog", "dusty", "index"],
+    "Mechanic": ["garage", "wrench", "grease", "noisy", "engine", "oil", "metal", "repair"],
+    "Musician": ["concert", "stage", "violin", "piano", "melody", "rhythm", "sound", "bow"],
+    "Architect": ["blueprint", "design", "building", "model", "ruler", "pencil", "structure", "office"],
+    "Scientist": ["laboratory", "chemicals", "research", "experiment", "beaker", "formula", "data", "white"],
+    "Farmer": ["farm", "tractor", "crops", "barn", "animals", "soil", "harvest", "pitchfork"],
+    "Sailor": ["boat", "sea", "knot", "uniform", "anchor", "ocean", "deck", "ship"]
+  },
+  "NUM_PLACE_SAMPLE": 6,
+  "PLACES": {
+    "Kitchen": ["cooking", "stove", "knife", "pan", "spices", "sink", "fridge", "heat"],
+    "Library": ["books", "quiet", "shelves", "reading", "catalog", "archive", "dust", "study"],
+    "Garage": ["tools", "wrench", "oil", "tire", "lift", "engine", "grease", "repair"],
+    "Garden": ["flowers", "soil", "watering", "sunlight", "leaves", "bench", "fresh", "green"],
+    "Bathroom": ["toilet", "sink", "mirror", "shower", "towel", "soap", "water", "tile"],
+    "Lounge": ["sofa", "relax", "comfortable", "table", "chairs", "social", "drinks", "music"],
+    "Billiard Room": ["pool", "stick", "billiards", "felt", "balls", "chalk", "game", "bar"],
+    "Hospital Room": ["bed", "monitor", "sterile", "patient", "nurse", "doctor", "medicine", "white"],
+    "Ballroom": ["dance", "chandelier", "formal", "music", "large", "elegant", "gowns", "event"],
+    "Gallery": ["art", "painting", "sculpture", "exhibit", "quiet", "frame", "museum", "display"],
+    "Basement": ["dark", "damp", "storage", "boxes", "concrete", "underground", "cold", "pipes"]
+  },
+  "NUM_WEAPON_SAMPLE": 7,
+  "WEAPONS": {
+    "Knife": ["sharp", "blade", "cut", "metal", "kitchen", "dangerous", "pointed", "slice"],
+    "Rope": ["tie", "knot", "fiber", "loop", "bind", "coil", "strand", "pull"],
+    "Hammer": ["heavy", "metal", "nail", "hit", "construction", "wood", "tool", "impact"],
+    "Poison Bottle": ["toxic", "liquid", "silent", "bottle", "dose", "chemical", "fatal", "water"],
+    "Wrench": ["turn", "bolt", "metal", "tighten", "garage", "tool", "pipe", "adjust"],
+    "Frying Pan": ["kitchen", "pan", "oil", "fry", "heat", "handle", "iron", "cook"],
+    "Shovel": ["dig", "soil", "handle", "spade", "garden", "hole", "earth", "lift"],
+    "Flowerpot": ["clay", "plant", "soil", "heavy", "ceramic", "garden", "shatter", "blunt"],
+    "Candlestick": ["metal", "candle", "wax", "flame", "blunt", "ornate", "holder", "light"],
+    "Revolver": ["gun", "bullet", "firearm", "loud", "metal", "trigger", "six", "smoke"],
+    "Pipe": ["metal", "heavy", "blunt", "plumbing", "water", "lead", "long", "hollow"],
+    "Wooden Chair": ["wood", "furniture", "sit", "legs", "blunt", "heavy", "common", "break"]
+  },
+  "NUM_NOUN_SAMPLE": 10,
+  "NOUNS": [
+    "stain", "sound", "water", "dust", "note", "letter", "food", "box", "key", "light",
+    "shadow", "smell", "liquid", "powder", "time", "voice", "music", "number", "color", "message",
+    "metal", "wood", "glass", "fabric", "plastic", "stone", "leather", "paper", "wire", "chain",
+    "glove", "uniform", "mask", "hat", "boot", "bottle", "container", "instrument", "machine", "tool",
+    "book", "pen", "document", "photograph", "mirror", "chair", "table", "carpet", "plant", "clock"
+  ]
+}
