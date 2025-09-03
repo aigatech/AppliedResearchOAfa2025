@@ -1,0 +1,9 @@
+transformers>=4.41.0
+torch>=2.1.0
+Pillow>=10.0.0
+numpy>=1.24.0
+scikit-image>=0.22.0
+gradio>=4.31.0
+pydantic==2.10.6
+sentencepiece>=0.1.99
+timm>=0.9.0
