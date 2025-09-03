@@ -1,0 +1,25 @@
+Patient Information:
+Name: Sarah Johnson
+DOB: 03/15/1985
+SSN: 123-45-6789
+Address: 456 Oak Street, Atlanta, GA 30309
+Phone: (404) 555-0123
+Email: sarah.johnson@email.com
+
+Medical History:
+Patient Sarah Johnson was seen on 12/15/2024 for routine checkup. 
+Dr. Michael Chen from Emory University Hospital performed the examination.
+Patient reported feeling well. Blood pressure was 120/80.
+Next appointment scheduled for 01/15/2025 at 2:00 PM.
+
+Insurance Information:
+Provider: Blue Cross Blue Shield
+Policy Number: BC123456789
+Group Number: 98765
+Contact: (800) 555-0199
+
+Emergency Contact:
+Name: Robert Johnson
+Relationship: Spouse
+Phone: (404) 555-0124
+Address: Same as patient
