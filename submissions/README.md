@@ -24,7 +24,7 @@ Run app
 
 Open local url: http://127.0.0.1:7860
 
-Upload audio file and click analyze button
+Upload audio file (included) and click analyze button
 
 
 
