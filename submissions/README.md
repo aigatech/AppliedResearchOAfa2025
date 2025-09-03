@@ -49,3 +49,7 @@
 
    ```bash
    python main.py
+
+## OR
+
+Open `main.py` in VSCode and use **Ctrl + F5** to run the file
