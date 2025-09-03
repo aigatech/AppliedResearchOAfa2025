@@ -18,6 +18,10 @@ Prereq: python installed
 
      pip install gradio transformers numpy pydub torch torchaudio
 
+install ffmpeg
+
+    brew install ffmpeg
+
 Run app
 
     python app.py
