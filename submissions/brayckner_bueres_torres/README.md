@@ -1,4 +1,4 @@
-# Network Traffic Classification for Anomaly Detection (XGBoost)
+# Network Traffic Classification Model for Anomaly Detection using XGBoost
 
 ## What it does
 Implements a supervised learning approach using XGBoost to perform binary classification on network traffic data. The model detects malicious patterns in real time, such as potential DDoS attacks, port scans, and other network anomalies, enabling proactive network defense.
