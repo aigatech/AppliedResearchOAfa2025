@@ -9,7 +9,7 @@ Upload a photo of food and the app will classify what dish it is and show its co
 1. Clone the repository & enter the project
 
 ```bash
-git clone <https://github.com/ani369chad/AppliedResearchOAfa2025.git>
+git clone https://github.com/ani369chad/AppliedResearchOAfa2025.git
 cd submissions
 ```
 2. Create & activiate virtual environment
