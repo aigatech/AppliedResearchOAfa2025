@@ -1,7 +1,11 @@
 import streamlit as st
 from PIL import Image
+from dotenv import load_dotenv
 from expand import Expand
 from captioner import ImageCaptioner
+
+# Load environment variables
+load_dotenv()
 
 @st.cache_resource
 def get_caption():

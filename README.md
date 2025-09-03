@@ -34,6 +34,15 @@ The app has three main parts:
 - Python 3.7 or higher
 - need internet
 - The packages listed in requirements.txt
+- HuggingFace API token (get one from https://huggingface.co/settings/tokens)
+
+## Setup
+
+1. Copy `env_template.txt` to `.env`
+2. Add your HuggingFace API token to the `.env` file:
+   ```
+   HUGGINGFACE_TOKEN=your_token_here
+   ```
 
 ## Example
 
