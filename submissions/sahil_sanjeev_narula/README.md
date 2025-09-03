@@ -1,5 +1,5 @@
 # AI Personality Quiz
-A Streamlit-based personality assessment tool that combines traditional Big Five psychology with HuggingFace AI models for enhanced personality analysis.
+A personality quiz that combines traditional Big Five psychology with HuggingFace AI models for enhanced personality analysis.
 
 ## What It Does
 
