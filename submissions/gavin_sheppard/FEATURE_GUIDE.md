@@ -1,4 +1,4 @@
-# 🚀 Advanced Sports AI System - Feature Testing Guide
+# Advanced Sports AI System - Feature Testing Guide
 
 ### **Option 1: Quick Demo**
 ```bash
@@ -14,14 +14,14 @@ This starts the full interactive system.
 
 ---
 
-## 🤖 **Interactive Commands**
+## **Interactive Commands**
 
 ### **1. Sentiment Analysis**
 ```
-🤖 Your request: Analyze sentiment: LeBron James is absolutely incredible!
-📊 Sentiment: POSITIVE (0.99)
-😊 Emotion: joy (0.85)
-💭 Analysis: Very positive sentiment with joy emotion
+Your request: Analyze sentiment: LeBron James is absolutely incredible!
+Sentiment: POSITIVE (0.99)
+Emotion: joy (0.85)
+Analysis: Very positive sentiment with joy emotion
 ```
 
 ### **2. Entity Extraction**
