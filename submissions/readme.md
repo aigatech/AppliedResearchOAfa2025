@@ -10,10 +10,6 @@ Also, the program provides a heat-map overlay of the original image to see the p
 ## How to run it (python 3+)
 1. Clone the repository:
 
-```bash
-git clone <https://github.com/samik-py/AppliedResearchOAfa2025>
-cd submissions
-```
 
 2. Initialize and activate the virtual environment. Either through VsCode's cmd + shift + p => "Python create virtual environment" or by running:
 
