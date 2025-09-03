@@ -50,7 +50,7 @@ for rnd in range(1, rounds + 1):
 user_vote = input("\nWho do you think won the debate? (Pro/Con): ")
 print(f"You voted: {user_vote}")
 
-judge_history = "\n".join(history[-10:])  # only last 10 entries
+judge_history = "\n".join(history[-10:])
 with open ("judge_prompt.txt", "r") as file:
     judge_directions = file.read()
 judge_prompt = f"""Debate transcript:\n{judge_history}\n
@@ -70,12 +70,12 @@ judge = judge.replace(judge_prompt, "").strip()
 print("\nAI Judge Verdict:", judge)
 
 for side in sides:
-    pers_scores = [p for (_, p) in scores[side]]  # Fixed variable name
+    pers_scores = [p for (_, p) in scores[side]] 
     plt.plot(range(1, len(pers_scores)+1), pers_scores, marker="o", label=side)
 
 plt.xlabel("Round")
 plt.ylabel("Persuasiveness Score (Alignment × Sentiment)")
 plt.title(f"Debate Persuasiveness: {topic}")
-plt.ylim(0,1)  # optional: fix y-axis scale
+plt.ylim(0,1)
 plt.legend()
 plt.show()
