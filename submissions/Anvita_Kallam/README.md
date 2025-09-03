@@ -40,9 +40,8 @@ python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
 huggingface-cli login
 ```
 - Create/login to your Hugging Face account
-- Request access to `google/gemma-3-270m` model (required for "balanced" mode)
+- Request access to `google/gemma-3-270m` model
 - Follow the authentication prompts
-- Note: "fast" and "quality" models don't require authentication
 
 ### 4. Set Environment Variables (if using macOS)
 ```bash
