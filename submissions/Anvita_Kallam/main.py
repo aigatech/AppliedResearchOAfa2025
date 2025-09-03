@@ -5,7 +5,6 @@ import sys
 import time
 from typing import List, Tuple, Dict, Any
 
-# In case of macOS mutex crash in tokenizers and torch, disable threads
 os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
 os.environ.setdefault("OMP_NUM_THREADS", "1")
 os.environ.setdefault("MKL_NUM_THREADS", "1")
@@ -24,7 +23,6 @@ except Exception:
 from transformers import pipeline
 
 
-# Model configurations for different specifications
 MODEL_CONFIGS = {
     "fast": {
         "model": "distilgpt2",
@@ -115,7 +113,7 @@ def fallback_from_source_text(source_text: str) -> List[Tuple[str, str]]:
     # Split into sentences
     chunks = re.split(r"(?<=[.!?])\s+|\n+", source_text)
     sentences = [" ".join(s.strip().split()) for s in chunks if s and len(s.strip()) > 0]
-    # Prefer longer sentences, more likely to not be trivial.
+    # Prefer longer sentences sine they're likely to not be trivial.
     selected = [s for s in sentences if len(s) > 20][:3]
     if len(selected) < 3:
         selected.extend(sentences[: 3 - len(selected)])
@@ -195,7 +193,7 @@ def generate_flashcards(text: str, model_mode: str = "balanced") -> Tuple[List[T
             device=-1,  # force CPU
         )
         print("Device set to use cpu")
-    except Exception as e:  # Handle gated/unauthorized errors gracefully
+    except Exception as e:  # Handle gated/unauthorized errors
         message = str(e).lower()
         if "gated" in message or "401" in message or "unauthorized" in message or "forbidden" in message:
             print(f"Error: Access to model '{config['model']}' is gated or unauthorized.")
@@ -225,7 +223,7 @@ def generate_flashcards(text: str, model_mode: str = "balanced") -> Tuple[List[T
         generated = generate_with_settings(generator, strict_prompt, strict_config)
         cards = parse_flashcards(generated)
 
-    # Heuristic fallback if still nothing
+    # Fallback if still nothing
     if not cards:
         cards = extract_numbered_items_as_cards(generated)
 
