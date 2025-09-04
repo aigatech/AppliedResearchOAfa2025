@@ -32,3 +32,17 @@ Student Model: DistilGPT-2 (smaller, faster model, not pre-trained) **80MB**
 **2.**`pip install -r requirements.txt`
 
 **3.**`python knowledge_distillation.py`
+
+
+# Expected Output
+
+- Training progress with loss metrics (Total Loss, KL Divergence, Cross-Entropy)
+- Comparative text generation showing teacher vs student outputs
+
+# Example Results
+
+The student model learns to generate coherent text similar to the teacher:
+**Prompt:** "The future of artificial intelligence is"
+
+**Teacher:** "The future of artificial intelligence is bright, with applications in healthcare, education, and sustainable technology..."
+**Student:** "The future of artificial intelligence is promising, offering solutions for complex problems and improving human lives..."
