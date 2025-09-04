@@ -31,5 +31,5 @@ Some possible input examples:
 - gradio
 - transformers
 - json
-2. Launch a Jupyter Notebook and upload the Python Notebook file named 'IlishaGupta.ipynb'
+2. Launch a Jupyter Notebook and upload the Python file named 'IlishaGupta.py'
 3. Run the code and have fun! You can also create a public and shareable link. 
