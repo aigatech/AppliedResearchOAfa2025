@@ -1,0 +1,9 @@
+transformers>=4.43
+accelerate
+huggingface_hub
+torch
+torchaudio
+gradio
+soundfile
+sentencepiece
+protobuf
