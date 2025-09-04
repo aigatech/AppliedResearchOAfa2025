@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Doctor Note → Calendar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+  <div class="max-w-3xl mx-auto p-6">
+    <h1 class="text-2xl font-semibold mb-4">Doctor Note → OCR → JSON → Calendar (.ics)</h1>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="mb-4">
+          {% for m in messages %}
+            <div class="bg-red-100 border border-red-200 text-red-800 rounded p-3 mb-2">{{ m }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <form id="uploadForm" class="bg-white rounded-2xl shadow p-5 space-y-4"
+          method="post" action="{{ url_for('process') }}" enctype="multipart/form-data">
+      <div>
+        <label class="block text-sm font-medium mb-2">Upload an image (PNG/JPG/TIFF/WEBP/BMP)</label>
+        <input name="image" type="file" accept="image/*" class="block w-full border rounded-xl p-2" required />
+      </div>
+      <div class="flex items-center gap-3">
+        <button id="submitBtn" class="px-4 py-2 rounded-xl bg-black text-white">Convert to Calendar</button>
+        <span id="spinner" class="hidden animate-pulse text-sm text-gray-600">Processing…</span>
+      </div>
+      {% if not has_key %}
+        <p class="text-xs text-red-600">OPENAI_API_KEY is not set—OCR will fail. Set it and restart the app.</p>
+      {% endif %}
+    </form>
+
+    {% if result %}
+      <div class="mt-8 space-y-6">
+        <div class="bg-white rounded-2xl shadow p-5">
+          <h2 class="font-semibold mb-2">OCR (first 800 chars)</h2>
+          <pre class="text-sm whitespace-pre-wrap">{{ (result.ocr_text or '')[:800] }}</pre>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow p-5">
+          <h2 class="font-semibold mb-2">Extracted JSON</h2>
+          <pre class="text-sm overflow-x-auto">{{ result.structured | tojson(indent=2) }}</pre>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow p-5 flex items-center justify-between">
+          <div>
+            <h2 class="font-semibold">Calendar file ready</h2>
+            <p class="text-sm text-gray-600 break-all">{{ ics_name }}</p>
+          </div>
+          <a href="{{ url_for('download_ics', token=token) }}" class="px-4 py-2 rounded-xl bg-emerald-600 text-white">Download .ics</a>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+
+  <script>
+    const form = document.getElementById('uploadForm');
+    const spinner = document.getElementById('spinner');
+    const btn = document.getElementById('submitBtn');
+    if (form) {
+      form.addEventListener('submit', () => {
+        if (spinner) spinner.classList.remove('hidden');
+        if (btn) {
+          btn.disabled = true;
+          btn.classList.add('opacity-60','cursor-not-allowed');
+        }
+      });
+    }
+  </script>
+</body>
+</html>
