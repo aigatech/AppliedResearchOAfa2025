@@ -1,10 +1,26 @@
-#Mood-to-Music Recommender:#
+# Mood-to-Music Recommender:
 
-An AI-powered web app that analyzes your mood from natural language input and recommends the perfect playlist! Uses Hugging Face transformers for zero-shot classification and Gradio for the web interface.
-Features
+About: This web app (powered by Gradio) analyzes your mood based on natural language input (from Hugging Face Transformers – BART model) and recommends the perfect playlist. There are 10 possible mood categories with suggested songs hard-coded into them and based on your language, we can determine the mood and confidence score to suggest a new playlist. 
 
-AI Mood Detection: Powered by Facebook's BART model
-10 Mood Categories: From "happy and energetic" to "contemplative and introspective"
-Confidence Scores: See how certain the AI is about your mood
-Curated Playlists: Hand-picked songs for each mood category
-Web Interface: Beautiful, responsive Gradio interface
+Some possible input examples:
+
+> "I'm feeling really down after a breakup"
+
+> "Just got promoted at work, so excited!"
+
+> "Can't sleep, mind racing with thoughts"
+
+> "Perfect Sunday morning with coffee"
+
+## Mood Categories:
+
+- Happy and Energetic
+- Sad and Melancholic
+- Nostalgic and Reflective
+- Motivated and Determined
+- Relaxed and Peaceful
+- Anxious and Stressed
+- Romantic and Dreamy
+- Angry and Frustrated
+- Confident and Powerful
+- Contemplative and Introspective
