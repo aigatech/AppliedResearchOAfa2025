@@ -23,3 +23,5 @@ When finished, open a Pull Request (PR) to this repo. Title your PR: "Submission
 - Only include the code, small config files, and instructions to re-install dependencies
 
 #### Note: You don’t need a GPU to complete this! Plenty of HuggingFace models (DistilBERT, MiniLM, etc.) run well on CPU. Focus on building something small but creative! We look foward to seeing all of your ideas come to life. If you have any questions, please reach out to zishani3@gatech.edu.  
+
+
