@@ -33,7 +33,17 @@ def main(
         sys.exit(0)
 
     ctx.ensure_object(dict)
-    ctx.obj["config_path"] = Path(config) if config else None
+    
+    # Auto-detect git root for settings loading
+    from ..utils.helpers import get_git_root
+    
+    if config:
+        config_path = Path(config)
+    else:
+        git_root = get_git_root()
+        config_path = (git_root / ".ai-docs-config.json") if git_root else None
+    
+    ctx.obj["config_path"] = config_path
     ctx.obj["verbose"] = verbose
     ctx.obj["debug"] = debug
     try:
@@ -97,8 +107,19 @@ def init(
 ):
     """Initialize AI docs configuration."""
     console.print("[bold blue]🚀 Initializing AI Docs Generator[/bold blue]")
-
-    config_path = Path(".ai-docs-config.json")
+    
+    # Auto-detect git repository root and save config there
+    from ..utils.helpers import get_git_root
+    git_root = get_git_root()
+    
+    if git_root:
+        config_path = git_root / ".ai-docs-config.json"
+        console.print(f"[blue]📁 Detected git repository at: {git_root}[/blue]")
+        console.print(f"[blue]💾 Configuration will be saved to: {config_path}[/blue]")
+    else:
+        config_path = Path(".ai-docs-config.json")
+        console.print("[yellow]⚠️  No git repository detected. Saving config in current directory.[/yellow]")
+        console.print("[yellow]   Note: You'll need to run this from your git repository root for git hooks to work.[/yellow]")
 
     if config_path.exists() and not force:
         if not click.confirm(
@@ -583,18 +604,24 @@ def install_hook(ctx: click.Context, force: bool):
 
     console.print("[bold blue]🔗 Installing Git Post-Commit Hook[/bold blue]")
 
-    # Check if we're in a git repository
-    if not is_git_repository():
+    from ..utils.helpers import get_git_root
+    git_root = get_git_root()
+    
+    if not git_root:
         console.print("[red]Not in a git repository![/red]")
         console.print("Please run this command from within a git repository.")
         sys.exit(1)
 
-    # Check if configuration exists
-    config_path = Path(".ai-docs-config.json")
+    console.print(f"[blue]📁 Git repository detected at: {git_root}[/blue]")
+    
+    config_path = git_root / ".ai-docs-config.json"
     if not config_path.exists():
-        console.print("[red]No AI docs configuration found![/red]")
+        console.print(f"[red]No AI docs configuration found at: {config_path}[/red]")
         console.print("Please run 'ai-docs init' first to set up configuration.")
+        console.print("[blue]💡 Tip: Run 'ai-docs init' and it will automatically save the config in the right place![/blue]")
         sys.exit(1)
+    
+    console.print(f"[green]✓ Configuration found at: {config_path}[/green]")
 
     try:
         # Get git client
@@ -677,15 +704,14 @@ def uninstall_hook(ctx: click.Context):
     console.print("[bold blue]🗑️ Uninstalling Git Post-Commit Hook[/bold blue]")
 
     # Check if we're in a git repository
-    if not is_git_repository():
+    git_root = get_git_root()
+    if not git_root:
         console.print("[red]❌ Not in a git repository![/red]")
         sys.exit(1)
+    
+    console.print(f"[blue]📁 Git repository detected at: {git_root}[/blue]")
 
     try:
-        git_root = get_git_root()
-        if git_root is None:
-            console.print("[red]❌ Not in a git repository[/red]")
-            sys.exit(1)
         hook_file = git_root / ".git" / "hooks" / "post-commit"
 
         if not hook_file.exists():
