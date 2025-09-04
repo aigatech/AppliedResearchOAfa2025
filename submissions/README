@@ -1,0 +1,11 @@
+# Emotion Classifier
+
+## What it does
+This program uses Hugging Face's pretrained model
+[`j-hartmann/emotion-english-distilroberta-base`](https://huggingface.co/j-hartmann/emotion-english-distilroberta-base)
+to classify text into emotions like joy, sadness, anger, fear, disgust, and neutral.
+
+## How to run
+1. Install dependencies:
+   ```bash
+   pip install transformers torch
