@@ -1,0 +1,31 @@
+{
+    "models": {
+        "sentiment_model": "cardiffnlp/twitter-roberta-base-sentiment-latest",
+        "emotion_model": "j-hartmann/emotion-english-distilroberta-base"
+    },
+    "analysis": {
+        "max_messages_to_analyze": 10,
+        "auto_analysis_delay": 2.0,
+        "min_message_length": 2
+    },
+    "safety": {
+        "boundary_keywords": [
+            "stop", "uncomfortable", "not interested", "leave me alone",
+            "busy", "can't talk", "not now", "please stop", "don't want to",
+            "feeling pressured", "need space", "not in the mood"
+        ],
+        "respect_filters": true,
+        "enable_boundary_detection": true
+    },
+    "ui": {
+        "window_width": 1000,
+        "window_height": 700,
+        "auto_analyze": false,
+        "save_history": true
+    },
+    "suggestions": {
+        "max_suggestions": 4,
+        "include_next_steps": true,
+        "personalization_level": "medium"
+    }
+}
