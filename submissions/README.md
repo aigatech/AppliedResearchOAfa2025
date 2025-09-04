@@ -1,4 +1,4 @@
-# Translation Effects on Emotional Expression Across LanguagesRetry
+# Translation Effects on Emotional Expression Across Languages
 
 ## What This Project Does
 Takes English text, translates it to 4 languages (French, Spanish, German, Hindi), then runs an English emotion classifier on all versions to see how translation affects emotional perception.  
