@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.env/
+.venv/
+
+# HuggingFace cache
+.cache/
+transformers_cache/
+
+# Output files
+*.txt
+*.md
+!README.md
+!requirements.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
