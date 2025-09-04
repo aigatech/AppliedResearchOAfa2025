@@ -1,0 +1,114 @@
+LANGDON WINNER
+Do Artifacts Have Politics?
+In controversies about technology and society, there is no idea more pro
+vocative than the notion that technical things have political qualities. At issue is
+the claim that the machines, structures, and systems of modern material culture
+can be accurately judged not only for their contributions of efficiency and pro
+ductivity, not merely for their positive and negative environmental side effects,
+but also for the ways in which they can embody specific forms of power and
+authority. Since ideas of this kind have a persistent and troubling presence in
+discussions about the meaning of technology, they deserve explicit attention.1
+Writing in Technology and Culture almost two decades ago, Lewis Mumford
+gave classic statement to one version of the theme, arguing that "from late neo
+lithic times in the Near East, right down to our own day, two technologies have
+recurrently existed side by side: one authoritarian, the other democratic, the
+first system-centered, immensely powerful, but inherently unstable, the other
+man-centered, relatively weak, but resourceful and durable."2 This thesis
+stands at the heart of Mumford's studies of the city, architecture, and the his
+tory of technics, and mirrors concerns voiced earlier in the works of Peter
+Kropotkin, William Morris, and other nineteenth century critics of industrial
+ism. More recently, antinuclear and prosolar energy movements in Europe and
+America have adopted a similar notion as a centerpiece in their arguments.
+Thus environmentalist Denis Hayes concludes, "The increased deployment of
+nuclear power facilities must lead society toward authoritarianism. Indeed, safe
+reliance upon nuclear power as the principal source of energy may be possible
+only in a totalitarian state." Echoing the views of many proponents of appropri
+ate technology and the soft energy path, Hayes contends that "dispersed solar
+sources are more compatible than centralized technologies with social equity,
+freedom and cultural pluralism."3
+An eagerness to interpret technical artifacts in political language is by no
+means the exclusive property of critics of large-scale high-technology systems.
+A long lineage of boosters have insisted that the "biggest and best" that science
+and industry made available were the best guarantees of democracy, freedom,
+and social justice. The factory system, automobile, telephone, radio, television,
+the space program, and of course nuclear power itself have all at one time or
+another been described as democratizing, liberating forces. David Lilienthal, in 
+T.V.A.: Democracy on the March, for example, found this promise in the phosphate
+fertilizers and electricity that technical progress was bringing to rural
+Americans during the 1940s.4 In a recent essay, The Republic of Technology,
+Daniel Boorstin extolled television for "its power to disband armies, to cashier
+presidents, to create a whole new democratic world?democratic in ways never
+before imagined, even in America."5 Scarcely a new invention comes along that
+someone does not proclaim it the salvation of a free society.
+It is no surprise to learn that technical systems of various kinds are deeply
+interwoven in the conditions of modern politics. The physical arrangements of
+industrial production, warfare, communications, and the like have fundamen
+tally changed the exercise of power and the experience of citizenship. But to go
+beyond this obvious fact and to argue that certain technologies in themselves have
+political properties seems, at first glance, completely mistaken. We all know
+that people have politics, not things. To discover either virtues or evils in aggre
+gates of steel, plastic, transistors, integrated circuits, and chemicals seems
+just plain wrong, a way of mystifying human artifice and of avoiding the true
+sources, the human sources of freedom and oppression, justice and injustice.
+Blaming the hardware appears even more foolish than blaming the victims when
+it comes to judging conditions of public life. omes to judging conditions of public life.
+Hence, the stern advice commonly given those who flirt with the notion that
+technical artifacts have political qualities: What matters is not technology itself,
+but the social or economic system in which it is embedded. This maxim, which
+in a number of variations is the central premise of a theory that can be called
+the social determination of technology, has an obvious wisdom. It serves as a
+needed corrective to those who focus uncritically on such things as "the comput
+er and its social impacts" but who fail to look behind technical things to notice
+the social circumstances of their development, deployment, and use. This view
+provides an antidote to naive technological determinism?the idea that tech
+nology develops as the sole result of an internal dynamic, and then, unmediated
+by any other influence, molds society to fit its patterns. Those who have not
+recognized the ways in which technologies are shaped by social and economic
+forces have not gotten very far.
+But the corrective has its own shortcomings; taken literally, it suggests that
+technical things do not matter at all. Once one has done the detective work
+necessary to reveal the social origins?power holders behind a particular in
+stance of technological change?one will have explained everything of impor
+tance. This conclusion offers comfort to social scientists: it validates what they
+had always suspected, namely, that there is nothing distinctive about the study
+of technology in the first place. Hence, they can return to their standard models
+of social power?those of interest group politics, bureaucratic politics, Marxist
+models of class struggle, and the like?and have everything they need. The
+social determination of technology is, in this view, essentially no different from
+the social determination of, say, welfare policy or taxation.
+There are, however, good reasons technology has of late taken on a special
+fascination in its own right for historians, philosophers, and political scien
+tists; good reasons the standard models of social science only go so far in ac
+counting for what is most interesting and troublesome about the subject. In
+another place I have tried to show why so much of modern social and political
+thought contains recurring statements of what can be called a theory of technology
+politics, an odd mongrel of notions often crossbred with orthodox
+liberal, conservative, and socialist philosophies.6 The theory of technological
+politics draws attention to the momentum of large-scale sociotechnical systems,
+to the response of modern societies to certain technological imperatives, and to
+the all too common signs of the adaptation of human ends to technical means. In
+so doing it offers a novel framework of interpretation and explanation for some
+of the more puzzling patterns that have taken shape in and around the growth of
+modern material culture. One strength of this point of view is that it takes
+technical artifacts seriously. Rather than insist that we immediately reduce
+everything to the interplay of social forces, it suggests that we pay attention to
+the characteristics of technical objects and the meaning of those characteristics.
+A necessary complement to, rather than a replacement for, theories of the social
+determination of technology, this perspective identifies certain technologies as
+political phenomena in their own right. It points us back, to borrow Edmund
+Husserl's philosophical injunction, to the things themselves.
+In what follows I shall offer outlines and illustrations of two ways in which
+artifacts can contain political properties. First are instances in which the inven
+tion, design, or arrangement of a specific technical device or system becomes a
+way of settling an issue in a particular community. Seen in the proper light,
+examples of this kind are fairly straightforward and easily understood. Second
+are cases of what can be called inherently political technologies, man-made sys
+tems that appear to require, or to be strongly compatible with, particular kinds
+of political relationships. Arguments about cases of this kind are much more
+troublesome and closer to the heart of the matter. By "politics," I mean arrange
+ments of power and authority in human associations as well as the activities that
+take place within those arrangements. For my purposes, "technology" here is
+understood to mean all of modern practical artifice,7 but to avoid confusion I
+prefer to speak of technology, smaller or larger pieces or systems of hardware
+of a specific kind. My intention is not to settle any of the issues here once and for
+all, but to indicate their general dimensions and significance.
