@@ -1,0 +1,19 @@
+Medical Notes → Calendar
+
+What it does
+Upload a doctor’s note as an image or paste plain text. The app performs OCR on images, structures the note into JSON (appointments, medications, reminders), and lets you export a .ics calendar you can import into Google Calendar, Apple Calendar, or Outlook. No data is persisted on disk beyond the generated .ics unless you download it.
+
+Architecture and tech stack
+- Language: Python 3.10+
+- Web: Flask single‑page app
+- OCR (images): OpenAI GPT‑4o / GPT‑4o‑mini vision via the OpenAI Python SDK
+- Information extraction: Hugging Face FLAN‑T5 with a rule‑based fallback
+- Date/time parsing: dateparser, python‑dateutil, pytz
+- Calendar export: ics (creates standard iCalendar .ics files)
+- Frontend: minimal HTML/JS (no DB). Files are served by Flask; processing happens in memory.
+- Config: environment variables (OPENAI_API_KEY required; HF_EXTRACT_MODEL and FLASK_SECRET optional)
+
+Notes on behavior
+- OCR is used only when an image is provided; pasted text skips OCR.
+- Extraction takes place with FLAN‑T5 and if model output is incomplete, a rule‑based fallback fills gaps for titles, times, and ranges.
+- All parsing is timezone‑aware (default America/New_York) when creating calendar events.
