@@ -1,5 +1,3 @@
-import sqlite3
-import pickle
 from transformers import AutoTokenizer, AutoModel
 import torch
 import torch.nn.functional as F
@@ -10,38 +8,7 @@ class SemanticSearch:
         self.tokenizer = AutoTokenizer.from_pretrained('sentence-transformers/all-MiniLM-L6-v2')
         self.model = AutoModel.from_pretrained('sentence-transformers/all-MiniLM-L6-v2')
         self.sentences = []
-        self.sentence_embeddings = torch.empty((0,))
-
-        self.init_db()  # Initialize the database
-
-    def init_db(self):
-        """Initialize the database and create necessary tables."""
-        with sqlite3.connect('semantic_search.db') as conn:
-            c = conn.cursor()
-            c.execute('''
-                CREATE TABLE IF NOT EXISTS sentences (
-                    id INTEGER PRIMARY KEY,
-                    text TEXT UNIQUE,
-                    embedding BLOB
-                )
-            ''')
-            c.execute('''
-                CREATE TABLE IF NOT EXISTS search_history (
-                    id INTEGER PRIMARY KEY,
-                    query TEXT
-                )
-            ''')
-            conn.commit()
-
-    def save_to_db(self, sentence, embedding):
-        """Save a sentence and its embedding to the database."""
-        with sqlite3.connect('semantic_search.db') as conn:
-            c = conn.cursor()
-            try:
-                c.execute('INSERT INTO sentences (text, embedding) VALUES (?, ?)', (sentence, embedding))
-                conn.commit()
-            except sqlite3.IntegrityError:
-                print(f"⚠️ Sentence '{sentence}' already exists in the database.")
+        self.sentence_embeddings = torch.empty((0, 384))  # 384 is embedding dim for MiniLM
 
     def compute_embeddings(self, sent_list):
         """Compute and normalize embeddings for a list of sentences."""
@@ -64,13 +31,13 @@ class SemanticSearch:
         return F.normalize(embeddings, p=2, dim=1)
 
     def add_sentence(self, sentence):
-        """Add a new sentence to the database and embeddings."""
-        embedding = self.compute_embeddings([sentence]).detach()
-        embedding_np = embedding.numpy().astype('float32')
-        embedding_bytes = pickle.dumps(embedding_np)
-        self.save_to_db(sentence, embedding_bytes)
+        """Add a new sentence to the in-memory list."""
+        if sentence in self.sentences:
+            print(f"Sentence '{sentence}' already exists.")
+            return
 
-        # Update in-memory cache
+        embedding = self.compute_embeddings([sentence]).detach()
+
         self.sentences.append(sentence)
         if self.sentence_embeddings.nelement() == 0:
             self.sentence_embeddings = embedding
@@ -80,30 +47,23 @@ class SemanticSearch:
         print(f"Added: '{sentence}'")
 
     def remove_sentence(self, sentence):
-        """Remove a sentence from the database and embeddings."""
-        sentence = sentence.strip()  # Normalize input sentence
-        
+        """Remove a sentence from the in-memory list."""
         if sentence in self.sentences:
             idx = self.sentences.index(sentence)
             self.sentences.pop(idx)
-            if self.sentence_embeddings.nelement() > 0:
-                self.sentence_embeddings = torch.cat(
-                    [self.sentence_embeddings[:idx], self.sentence_embeddings[idx + 1:]], dim=0
-                )
-            self.remove_from_db(sentence)  # Remove from DB using original sentence
+            self.sentence_embeddings = torch.cat(
+                [self.sentence_embeddings[:idx], self.sentence_embeddings[idx + 1:]], dim=0
+            ) if self.sentence_embeddings.size(0) > 1 else torch.empty((0, 384))
             print(f"Removed: '{sentence}'")
         else:
-            print("⚠️ Sentence not found.")
-
-    def remove_from_db(self, sentence):
-        """Remove a sentence from the database."""
-        with sqlite3.connect('semantic_search.db') as conn:
-            c = conn.cursor()
-            c.execute('DELETE FROM sentences WHERE text = ?', (sentence,))
-            conn.commit()
+            print("Sentence not found.")
 
     def search(self, query, threshold=0.5):
         """Search for similar sentences based on a query."""
+        if not self.sentences:
+            print("No sentences stored.")
+            return
+
         query_embedding = self.compute_embeddings([query]).detach()
         similarities = F.cosine_similarity(query_embedding, self.sentence_embeddings)
 
@@ -117,25 +77,21 @@ class SemanticSearch:
             for rank, (idx, score) in enumerate(zip([top_indices[i] for i in sorted_indices], top_scores), start=1):
                 print(f"{rank}. '{self.sentences[idx]}' (similarity score: {score:.4f})")
         else:
-            print("⚠️ No matches found above the specified threshold.")
+            print("No matches found above the specified threshold.")
 
     def view_sentences(self):
         """Display all current sentences."""
         if not self.sentences:
-            print("⚠️ No sentences found.")
+            print("No sentences found.")
         else:
             print("\nCurrent sentences:")
             for idx, sentence in enumerate(self.sentences, start=1):
                 print(f"{idx}. '{sentence}'")
 
     def clear_all_sentences(self):
-        """Clear all sentences from the in-memory list and the database."""
+        """Clear all sentences from memory."""
         self.sentences.clear()
-        self.sentence_embeddings = torch.empty((0,))
-        with sqlite3.connect('semantic_search.db') as conn:
-            c = conn.cursor()
-            c.execute('DELETE FROM sentences')
-            conn.commit()
+        self.sentence_embeddings = torch.empty((0, 384))
         print("All sentences cleared.")
 
     def run(self):
@@ -146,9 +102,8 @@ class SemanticSearch:
         while True:
             command = input("\nEnter a command: ").strip().lower()
             if command == "exit":
-                # Clear sentences and embeddings before exiting
                 self.sentences.clear()
-                self.sentence_embeddings = torch.empty((0,))
+                self.sentence_embeddings = torch.empty((0, 384))
                 print("Exiting semantic search. Goodbye!")
                 break
             elif command == "add":
@@ -156,7 +111,7 @@ class SemanticSearch:
                 if new_sentence:
                     self.add_sentence(new_sentence)
                 else:
-                    print("⚠️ Empty sentence not added.")
+                    print("Empty sentence not added.")
             elif command == "remove":
                 sentence_to_remove = input("Enter the sentence to remove: ").strip()
                 self.remove_sentence(sentence_to_remove)
@@ -169,17 +124,17 @@ class SemanticSearch:
                         if not (0 <= threshold <= 1):
                             raise ValueError
                     except ValueError:
-                        print("⚠️ Invalid threshold. Please enter a number between 0 and 1.")
+                        print("Invalid threshold. Please enter a number between 0 and 1.")
                         continue
                     self.search(query, threshold)
                 else:
-                    print("⚠️ Please enter a valid query.")
+                    print("Please enter a valid query.")
             elif command == "view":
-                self.view_sentences()  # View all current sentences
+                self.view_sentences()
             elif command == "clear":
-                self.clear_all_sentences()  # Clear all sentences
+                self.clear_all_sentences()
             else:
-                print("⚠️ Unknown command. Please try again.")
+                print("Unknown command. Please try again.")
 
 if __name__ == "__main__":
     search_system = SemanticSearch()
