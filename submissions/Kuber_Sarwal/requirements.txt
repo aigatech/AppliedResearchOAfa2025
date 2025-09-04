@@ -1,0 +1,11 @@
+transformers==4.44.2
+huggingface-hub==0.24.6
+torch>=2.2.0
+torchaudio>=2.2.0
+librosa
+gradio
+pytube
+yt-dlp
+datasets
+numpy
+pydantic<2.0
