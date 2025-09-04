@@ -1,0 +1,7 @@
+gradio
+requests
+beautifulsoup4
+transformers>=4.30.0
+torch
+sentencepiece
+protobuf
