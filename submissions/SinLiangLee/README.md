@@ -72,14 +72,14 @@ Max output tokens [1024]: 1024
 - `phi-3-mini-128k` - Long-context model with 128K token window. Excellent for large diffs (3.8B params)  
 - `tinyllama` - Minimal resource usage (1.1B params)
 
-### 3. Install Git Hook (Main Feature)
+### 3. Install Git Hook
 
 ```bash
 # Enable automatic documentation generation on every commit
 ai-docs install-hook
 ```
 
-**This is the primary feature!** After installing the git hook, every time you run `git commit`, AI will automatically:
+After installing the git hook, every time you run `git commit`, AI will automatically:
 1. Analyze your git diff
 2. Generate comprehensive documentation 
 3. Save it in the `docs/` folder with timestamp and commit hash
