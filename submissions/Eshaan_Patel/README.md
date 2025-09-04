@@ -25,11 +25,10 @@ Comparative Analysis: Shows before/after outputs to demonstrate learning
 
 CPU Compatible: Runs efficiently on CPU (no GPU required)
 
-#Features
+# How to Run 
 
-`cd /submission/Eshaan_Patel`
+**1.** `cd /submission/Eshaan_Patel`
 
-`pip install -r requirements.txt`
+**2.**`pip install -r requirements.txt`
 
-`python knowledge_distillation.py`
-
+**3.**`python knowledge_distillation.py`
