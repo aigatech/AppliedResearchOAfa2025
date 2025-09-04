@@ -1,4 +1,4 @@
-\# NFL Play Tagger (Zero-Shot)
+# NFL Play Tagger (Zero-Shot)
 
 
 
