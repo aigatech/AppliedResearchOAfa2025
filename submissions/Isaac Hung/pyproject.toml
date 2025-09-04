@@ -1,0 +1,20 @@
+[project]
+name = "isaac-hung"
+version = "0.1.0"
+description = "Isaac Hung's Online Assessment Submission for AI@GT"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "huggingface-hub>=0.34.4",
+    "matplotlib>=3.10.6",
+    "numpy>=2.1.2",
+    "opencv-python>=4.12.0.88",
+    "safetensors>=0.6.2",
+    "scipy>=1.16.1",
+    "torch>=2.8.0",
+    "torchvision>=0.23.0",
+    "transformers>=4.56.0",
+]
+
+[[tool.uv.index]]
+url = "https://download.pytorch.org/whl/cu129"
