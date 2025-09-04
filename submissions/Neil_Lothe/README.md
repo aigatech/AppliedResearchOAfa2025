@@ -29,7 +29,7 @@ You can use this program to classify a single snippet.
     sports          0.0334
 
     Classify a csv batch:
-    python zero_shot_cli.py --file sample_data.csv --labels "technology, politics, entertainment, cooking, science, sports, environment, business" --threshold 0.25 --output results.json
+    python zeroshot.py --file sampledata.csv --labels "technology, politics, entertainment, cooking, science, sports, environment, business" --threshold 0.25 --output results.json
     
 ## Contact
 Neil Lothe - neil.lothe@gmail.com
