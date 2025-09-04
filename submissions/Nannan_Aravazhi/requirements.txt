@@ -1,0 +1,5 @@
+transformers
+wikipedia-api
+torch
+sentencepiece
+protobuf<5
