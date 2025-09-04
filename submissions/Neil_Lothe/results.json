@@ -1,0 +1,153 @@
+[
+  {
+    "text": "NASA announces new mission to explore Jupiter's moons.",
+    "predictions": [
+      {
+        "label": "science",
+        "score": 0.48364919424057007
+      }
+    ]
+  },
+  {
+    "text": "Local team wins the national basketball championship.",
+    "predictions": [
+      {
+        "label": "sports",
+        "score": 0.7087031006813049
+      }
+    ]
+  },
+  {
+    "text": "Stock prices soar after major chipmaker reports record profits.",
+    "predictions": [
+      {
+        "label": "technology",
+        "score": 0.40551459789276123
+      },
+      {
+        "label": "business",
+        "score": 0.3715258240699768
+      }
+    ]
+  },
+  {
+    "text": "Chef reveals secret recipe for award-winning chocolate cake.",
+    "predictions": [
+      {
+        "label": "cooking",
+        "score": 0.819044291973114
+      }
+    ]
+  },
+  {
+    "text": "Parliament passes sweeping climate change legislation.",
+    "predictions": [
+      {
+        "label": "environment",
+        "score": 0.795016348361969
+      }
+    ]
+  },
+  {
+    "text": "Breakthrough in quantum computing promises faster encryption.",
+    "predictions": [
+      {
+        "label": "technology",
+        "score": 0.48649752140045166
+      },
+      {
+        "label": "science",
+        "score": 0.29265737533569336
+      }
+    ]
+  },
+  {
+    "text": "Actor signs multi-film deal with major studio.",
+    "predictions": [
+      {
+        "label": "business",
+        "score": 0.46105819940567017
+      },
+      {
+        "label": "entertainment",
+        "score": 0.30918484926223755
+      }
+    ]
+  },
+  {
+    "text": "Scientists discover new species of orchid in the Amazon.",
+    "predictions": [
+      {
+        "label": "science",
+        "score": 0.6259618997573853
+      }
+    ]
+  },
+  {
+    "text": "City council debates expanding bus rapid transit lines.",
+    "predictions": [
+      {
+        "label": "politics",
+        "score": 0.2624264359474182
+      }
+    ]
+  },
+  {
+    "text": "New smartphone launch features on-device AI for photos.",
+    "predictions": [
+      {
+        "label": "technology",
+        "score": 0.5020946860313416
+      }
+    ]
+  },
+  {
+    "text": "Heavy rains cause flooding; emergency services deployed.",
+    "predictions": [
+      {
+        "label": "environment",
+        "score": 0.31636327505111694
+      }
+    ]
+  },
+  {
+    "text": "Startup secures Series B funding to scale electric scooters.",
+    "predictions": [
+      {
+        "label": "business",
+        "score": 0.38298743963241577
+      },
+      {
+        "label": "technology",
+        "score": 0.35311904549598694
+      }
+    ]
+  },
+  {
+    "text": "University researchers publish study on vaccine effectiveness.",
+    "predictions": [
+      {
+        "label": "science",
+        "score": 0.5475214123725891
+      }
+    ]
+  },
+  {
+    "text": "Soccer star transfers to European club for record fee.",
+    "predictions": [
+      {
+        "label": "sports",
+        "score": 0.6737396121025085
+      }
+    ]
+  },
+  {
+    "text": "Data breach exposes user information from popular social network.",
+    "predictions": [
+      {
+        "label": "technology",
+        "score": 0.4135860204696655
+      }
+    ]
+  }
+]
