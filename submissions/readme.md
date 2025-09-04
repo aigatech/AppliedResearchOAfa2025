@@ -8,3 +8,5 @@ To run it, simply run the main.py python script and answer the initial console i
 
 An area of expansion would definitely be adding song recommendations in addition to playlist themes and mood.
 I hope you liked my project.
+
+Pip install torch, transformers, and diffusers.
