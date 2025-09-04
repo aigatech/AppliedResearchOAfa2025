@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# Model files
+*.bin
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+pytorch_model.bin
+
+# Data
+*.csv
+*.json
+data/
+datasets/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Virtual environments
+pyvenv.cfg
+bin/
+include/
+lib/
+share/
+Scripts/
+Lib/
