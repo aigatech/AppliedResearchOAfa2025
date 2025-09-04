@@ -2,6 +2,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 import os
 import colorsys
 import tempfile
+from . import templates
 
 # Try to import WeasyPrint, but provide fallback if not available
 try:
@@ -65,8 +66,22 @@ def load_font(size, weight="normal"):
     except Exception:
         return ImageFont.load_default()
 
-def render_png(headline, tagline, bullets, cta, palette, bg_path=None, out="flyer.png"):
-    """Render flyer as PNG image with enhanced graphics."""
+def render_png(headline, tagline, bullets, cta, palette, bg_path=None, out="flyer.png", template_name="modern"):
+    """Render flyer as PNG image with professional templates."""
+    try:
+        # Use professional templates for better quality
+        if template_name and template_name in templates.get_available_templates():
+            return templates.render_template_flyer(headline, tagline, bullets, cta, template_name, out)
+        
+        # Fallback to enhanced original method
+        return render_enhanced_png(headline, tagline, bullets, cta, palette, bg_path, out)
+        
+    except Exception as e:
+        print(f"Error rendering PNG: {e}")
+        return create_fallback_flyer(out)
+
+def render_enhanced_png(headline, tagline, bullets, cta, palette, bg_path=None, out="flyer.png"):
+    """Original enhanced PNG rendering method."""
     try:
         W, H = 1080, 1350  # Instagram story dimensions
         

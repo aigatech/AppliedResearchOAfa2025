@@ -12,7 +12,7 @@ from dotenv import load_dotenv
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Import core modules
-from core import branding, copywriter, ranker, flyer, video, images_remote, safety
+from core import branding, copywriter, ranker, flyer, video, images_remote, safety, templates
 
 def main():
     """Main CLI function."""
@@ -46,6 +46,13 @@ Examples:
         choices=["friendly", "professional", "playful", "bold"],
         default="friendly",
         help="Brand tone (default: friendly)"
+    )
+    parser.add_argument(
+        "--template", 
+        type=str, 
+        choices=templates.get_available_templates(),
+        default="modern",
+        help="Flyer template (default: modern)"
     )
     parser.add_argument(
         "--remote-image", 
@@ -153,7 +160,7 @@ Examples:
         # 5) Generate flyer
         print("📄 Creating flyer...")
         flyer_png_path = os.path.join(args.output_dir, "flyer.png")
-        flyer_png = flyer.render_png(headline, tagline, bullets, cta, final_palette, bg_path, flyer_png_path)
+        flyer_png = flyer.render_png(headline, tagline, bullets, cta, final_palette, bg_path, flyer_png_path, template_name=args.template)
         
         if flyer_png and os.path.exists(flyer_png):
             print(f"✅ Flyer PNG created: {flyer_png}")

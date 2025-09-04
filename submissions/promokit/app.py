@@ -7,12 +7,12 @@ from dotenv import load_dotenv
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 # Import core modules
-from core import branding, copywriter, ranker, flyer, video, images_remote, safety
+from core import branding, copywriter, ranker, flyer, video, images_remote, safety, templates
 
 # Load environment variables
 load_dotenv()
 
-def generate_promokit(prompt, url, tone, use_remote_image, use_tts):
+def generate_promokit(prompt, url, tone, template_name, use_remote_image, use_tts):
     """Main generation function for PromoKit."""
     try:
         # 1) Get brief and palette
@@ -69,7 +69,7 @@ def generate_promokit(prompt, url, tone, use_remote_image, use_tts):
             bg_path = images_remote.generate_safe_background(bg_prompt)
         
         # 5) Generate flyer
-        flyer_png = flyer.render_png(headline, tagline, bullets, cta, final_palette, bg_path)
+        flyer_png = flyer.render_png(headline, tagline, bullets, cta, final_palette, bg_path, template_name=template_name)
         flyer_pdf = flyer.render_pdf(flyer_png)
         
         # 6) Generate video
@@ -125,6 +125,13 @@ with gr.Blocks(title="PromoKit Lite - AI Marketing Content Generator", theme=gr.
                 label="Brand Tone"
             )
             
+            template_name = gr.Dropdown(
+                choices=templates.get_available_templates(),
+                value="modern",
+                label="Flyer Template",
+                info="Choose a professional design template"
+            )
+            
             with gr.Row():
                 use_remote_image = gr.Checkbox(
                     label="Use AI Background Image",
@@ -172,7 +179,7 @@ with gr.Blocks(title="PromoKit Lite - AI Marketing Content Generator", theme=gr.
     # Event handlers
     generate_btn.click(
         fn=generate_promokit,
-        inputs=[prompt, url, tone, use_remote_image, use_tts],
+        inputs=[prompt, url, tone, template_name, use_remote_image, use_tts],
         outputs=[flyer_image, flyer_download, video_output, status]
     )
     
@@ -183,6 +190,7 @@ with gr.Blocks(title="PromoKit Lite - AI Marketing Content Generator", theme=gr.
                 "Modern yoga studio in downtown Atlanta offering classes for all levels",
                 "",
                 "friendly",
+                "modern",
                 False,
                 False
             ],
@@ -190,6 +198,7 @@ with gr.Blocks(title="PromoKit Lite - AI Marketing Content Generator", theme=gr.
                 "Professional consulting firm specializing in digital transformation",
                 "",
                 "professional",
+                "elegant",
                 True,
                 False
             ],
@@ -197,11 +206,12 @@ with gr.Blocks(title="PromoKit Lite - AI Marketing Content Generator", theme=gr.
                 "Creative design agency creating stunning websites and branding",
                 "",
                 "playful",
+                "playful",
                 False,
                 False
             ]
         ],
-        inputs=[prompt, url, tone, use_remote_image, use_tts],
+        inputs=[prompt, url, tone, template_name, use_remote_image, use_tts],
         label="Example Prompts"
     )
 
