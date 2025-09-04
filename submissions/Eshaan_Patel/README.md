@@ -13,17 +13,17 @@ Student Model: DistilGPT-2 (smaller, faster model, not pre-trained) **80MB**
 
 # Features
 
-Temperature Scaling: Softens probability distributions for better knowledge transfer
+- Temperature Scaling: Softens probability distributions for better knowledge transfer
 
-Attention Masking: Properly handles variable-length sequences
+- Attention Masking: Properly handles variable-length sequences
 
-Gradient Descent Optimization: custom training loop with AdamW optimizer, learning rate scheduling
+- Gradient Descent Optimization: custom training loop with AdamW optimizer, learning rate scheduling
 
-Loss Function: Combines distillation loss (KL divergence) with standard cross-entropy loss
+- Loss Function: Combines distillation loss (KL divergence) with standard cross-entropy loss
 
-Comparative Analysis: Shows before/after outputs to demonstrate learning
+- Comparative Analysis: Shows before/after outputs to demonstrate learning
 
-CPU Compatible: Runs efficiently on CPU (no GPU required)
+- CPU Compatible: Runs efficiently on CPU (no GPU required)
 
 # How to Run 
 
