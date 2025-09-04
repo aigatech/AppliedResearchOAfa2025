@@ -24,6 +24,6 @@ The program searches for semantically similar sentences with **cosine similarity
 2. Install the required libraries:  
 
    ```bash
-   > pip install torch transformers
-   > cd path/to/your/project
-   > python main.py
+   pip install torch transformers
+   cd path/to/your/project
+   python main.py
