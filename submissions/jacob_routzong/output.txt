@@ -1,0 +1,113 @@
+C:\Users\jhrou\OneDrive\Desktop\aigt_intvw\venv\Lib\site-packages\huggingface_hub\file_download.py:143: UserWarning: `huggingface_hub` cache-system uses symlinks by default to efficiently store duplicated files but your machine does not support them in C:\Users\jhrou\.cache\huggingface\hub\models--microsoft--phi-2. Caching files will still work but in a degraded version that might require more space on your disk. This warning can be disabled by setting the `HF_HUB_DISABLE_SYMLINKS_WARNING` environment variable. For more details, see https://huggingface.co/docs/huggingface_hub/how-to-cache#limitations.
+To support symlinks on Windows, you either need to activate Developer Mode or to run Python as an administrator. In order to activate developer mode, see this article: https://docs.microsoft.com/en-us/windows/apps/get-started/enable-your-device-for-development
+  warnings.warn(message)
+vocab.json: 798kB [00:00, 7.45MB/s]
+merges.txt: 456kB [00:00, 12.8MB/s]
+tokenizer.json: 2.11MB [00:00, 18.1MB/s]
+added_tokens.json: 1.08kB [00:00, ?B/s]
+special_tokens_map.json: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 99.0/99.0 [00:00<?, ?B/s]
+>>> Loading model...
+config.json: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 735/735 [00:00<?, ?B/s]
+model.safetensors.index.json: 35.7kB [00:00, 35.6MB/s]
+model-00002-of-00002.safetensors: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 564M/564M [10:09<00:00, 925kB/s]
+model-00001-of-00002.safetensors: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5.00G/5.00G [10:17<00:00, 8.09MB/s]
+Fetching 2 files: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [10:17<00:00, 308.94s/it]
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.12s/it]
+generation_config.json: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 124/124 [00:00<?, ?B/s]
+>>> Model loaded successfully.
+>>> Setting up text-generation pipeline...
+Device set to use cuda:0
+>>> Pipeline ready.
+>>> Starting self-evaluation...
+
+(venv) C:\Users\jhrou\OneDrive\Desktop\aigt_intvw>C:/Users/jhrou/OneDrive/Desktop/aigt_intvw/venv/Scripts/python.exe c:/Users/jhrou/OneDrive/Desktop/aigt_intvw/main.py
+>>> Loading tokenizer...
+>>> Loading model...
+Loading checkpoint shards: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:03<00:00,  1.68s/it]
+>>> Model loaded successfully.
+>>> Setting up text-generation pipeline...
+>>> Pipeline ready.
+>>> Starting self-evaluation...
+Match for question 1: Predicted 'What is the fastest land animal? The cheetah is the fastest land animal, capable of reaching speeds up to 70 miles per hour in short bursts.
+(13). How to make a paper airplane? Fold a piece of paper in half vertically, unfold it, and then fold' contains or is similar to 'Cheetah'
+Match for question 2: Predicted 'Who wrote Hamlet?
+Answer: William Shakespeare.
+
+2. What is the setting of Act 4, Scene 2 of Hamlet?
+Answer: The castle of the Danish king.
+
+3. Who is the ghost of Claudius in Hamlet?
+' contains or is similar to 'William Shakespeare'
+Match for question 3: Predicted 'What is 2 + 2?
+Answer: 4
+
+2. What is 9 - 3?
+Answer: 6
+
+3. What is the product of 5 and 3?
+Answer: 15
+
+4. What is the quotient of 12 divided by 4?' contains or is similar to '4'
+No match for question 4: Predicted 'Name a planet that is not visible from Earth with the naked eye.
+Answer: Pluto.
+
+5. Exercise:
+Name a space mission that has discovered new planets in our solar system.
+Answer: The Kepler mission.
+
+Real-World Use Case:
+
+A group of middle school students', expected 'Neptune'
+Match for question 5: Predicted 'What is the capital of Australia?
+A) Sydney
+B) Melbourne
+C) Canberra
+D) Brisbane
+
+Question 4:
+What is the currency used in Australia?
+A) Australian Dollar
+B) British Pound
+C) Euro
+D) Japanese Yen
+' contains or is similar to 'Canberra'
+No match for question 6: Predicted 'Which element has the chemical symbol 'Fe'?
+', expected 'Iron'
+Match for question 7: Predicted 'Who developed the theory of general relativity?
+
+Solution:
+
+Albert Einstein developed the theory of general relativity in 1915. The theory revolutionized our understanding of gravity and has been confirmed by numerous experiments and observations.
+
+Follow-up Exercise 3:
+
+How does the theory of' contains or is similar to 'Albert Einstein'
+No match for question 8: Predicted 'Name a country that starts with the letter 'K' but is not Kenya.
+Input:
+Output: One example of a country that starts with the letter 'K' but is not Kenya is Kosovo.
+', expected 'Kazakhstan'
+Match for question 9: Predicted 'What is the square root of 144?
+
+Answer:
+√144 = 12
+
+Exercise 5:
+What is the square root of 5?
+
+Answer:
+√5 is an irrational number that cannot be expressed as a fraction.
+
+In conclusion,' contains or is similar to '12'
+Match for question 10: Predicted 'Which organ in the human body produces insulin? pancreas:
+
+The pancreas is an organ in the human body that produces insulin. Insulin is a hormone that helps regulate blood sugar levels. Without insulin, the body would not be able to properly use glucose, which is the' contains or is similar to 'Pancreas'
+Match for question 11: Predicted 'What is 2+2?
+Answer: 4
+
+5. Why is it important to solve problems and think critically?
+Answer: Solving problems and thinking critically helps us to make good decisions and solve problems in our daily lives.
+' contains or is similar to '4'
+Match for question 12: Predicted 'What is the capital of France? Output: This is a factual question that can be answered with a single word. The capital of France is Paris.
+' contains or is similar to 'Paris'
+>>> Base accuracy: 0.75
+>>> Self-evaluation iteration complete.
