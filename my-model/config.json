@@ -1,0 +1,5 @@
+{
+  "hidden_size": 32,
+  "num_channels": 3,
+  "num_classes": 10
+}
