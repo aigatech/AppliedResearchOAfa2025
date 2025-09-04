@@ -1,0 +1,62 @@
+# Install dependencies:
+# python -m pip install transformers torch sentencepiece
+# python -m pip install transformers datasets
+# python -m pip install tensorflow
+# python -m pip install pandas
+# python -m pip install numpy
+
+# This program aims to perform a sentiment analysis on English text translated to different languages.
+# The purpose of this is to see how a seemingly "direct" translation affects how speech is percieved.
+
+# Install libraries
+from transformers import pipeline
+import pandas as pd
+import numpy as np
+
+
+# Translation pipelines (explicit models)
+translator_en_to_fr = pipeline("translation", model="Helsinki-NLP/opus-mt-en-fr")
+translator_en_to_es = pipeline("translation", model="Helsinki-NLP/opus-mt-en-es")
+translator_en_to_de = pipeline("translation", model="Helsinki-NLP/opus-mt-en-de")
+translator_en_to_hi = pipeline("translation", model="Helsinki-NLP/opus-mt-en-hi")
+
+# Emotion classifier
+emotion_model = pipeline("text-classification", 
+                         model="j-hartmann/emotion-english-distilroberta-base", 
+                         return_all_scores=True)
+
+# Input text
+text = input("Enter English text: ")
+
+print(f"\nOriginal English text:\n{text}\n")
+
+# Translate into different languages
+translations = {
+    "French": translator_en_to_fr(text)[0]['translation_text'],
+    "Spanish": translator_en_to_es(text)[0]['translation_text'],
+    "German": translator_en_to_de(text)[0]['translation_text'],
+    "Hindi": translator_en_to_hi(text)[0]['translation_text']
+}
+
+# Run emotion analysis across languages
+print("Emotion Analysis Across Languages:\n")
+for lang, translated_text in translations.items():
+    results = emotion_model(translated_text)[0]
+    
+    print(f"{lang}: {translated_text}")
+    for r in results:
+        print(f"  {r['label']}: {r['score']:.2%}")
+    print()
+
+# Store results in a DataFrame for clear visualization
+data = {}
+
+for lang, translated_text in translations.items():
+    results = emotion_model(translated_text)[0]
+    data[lang] = {r['label']: r['score'] for r in results}
+
+# Convert to DataFrame
+df = pd.DataFrame(data)
+
+print("\n Emotion Comparison Table:\n")
+print(df.applymap(lambda x: f"{x:.2%}"))  # show percentages
