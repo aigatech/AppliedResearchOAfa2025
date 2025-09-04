@@ -31,7 +31,7 @@ class SemanticSearch:
         return F.normalize(embeddings, p=2, dim=1)
 
     def add_sentence(self, sentence):
-        """Add a new sentence to the in-memory list."""
+        """Add a new sentence to the list."""
         if sentence in self.sentences:
             print(f"Sentence '{sentence}' already exists.")
             return
@@ -47,16 +47,23 @@ class SemanticSearch:
         print(f"Added: '{sentence}'")
 
     def remove_sentence(self, sentence):
-        """Remove a sentence from the in-memory list."""
-        if sentence in self.sentences:
-            idx = self.sentences.index(sentence)
-            self.sentences.pop(idx)
-            self.sentence_embeddings = torch.cat(
-                [self.sentence_embeddings[:idx], self.sentence_embeddings[idx + 1:]], dim=0
-            ) if self.sentence_embeddings.size(0) > 1 else torch.empty((0, 384))
-            print(f"Removed: '{sentence}'")
-        else:
+        """Remove a sentence from the list."""
+        if sentence not in self.sentences:
             print("Sentence not found.")
+            return
+
+        idx = self.sentences.index(sentence)
+        self.sentences.pop(idx)
+
+        if len(self.sentences) == 0:
+            self.sentence_embeddings = torch.empty((0, 384))
+        else:
+            mask = torch.ones(self.sentence_embeddings.size(0), dtype=torch.bool)
+            mask[idx] = False
+            self.sentence_embeddings = self.sentence_embeddings[mask]
+
+        print(f"Removed: '{sentence}'")
+
 
     def search(self, query, threshold=0.5):
         """Search for similar sentences based on a query."""
