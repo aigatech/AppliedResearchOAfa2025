@@ -1,7 +1,7 @@
 # Semantic Search System
 
 Welcome to the **Semantic Search System**!  
-This project allows you to store and search sentences in a database using semantic embeddings.
+This project allows you to store and then search sentences in a database using semantic embeddings. This project implements a semantic search engine using Hugging Face’s **Transformers** and **PyTorch**. The user first adds sentences that generate **sentence embeddings** using the `all-MiniLM-L6-v2` model. The program is able to search for semantically similar sentences with **cosine similarity**.
 
 ## Features
 - **Add Sentences**: Store sentences along with their semantic embeddings in the database.  
@@ -10,10 +10,9 @@ This project allows you to store and search sentences in a database using semant
 - **View Sentences**: Display all sentences in the database.  
 - **Clear All**: Remove all sentences from the database.  
 
-## Install Libraries
-Make sure the following libraries are installed before running the project:
+## How to Run
 
-- `torch`  
-- `transformers`  
-- `sqlite3` (built into Python, no installation required)  
-- `pickle` (built into Python, no installation required)  
+1. Make sure you have **Python 3.8+** installed.  
+2. Make sure the following libraries are installed before running the project:
+  - `torch`  
+  - `transformers`
