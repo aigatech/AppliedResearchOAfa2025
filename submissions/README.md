@@ -24,3 +24,12 @@ Some possible input examples:
 - Angry and Frustrated
 - Confident and Powerful
 - Contemplative and Introspective
+
+## How to run this?
+
+1. Install the following libraries:
+- gradio
+- transformers
+- json
+2. Launch a Jupyter Notebook and upload the Python Notebook file named 'IlishaGupta.ipynb'
+3. Run the code and have fun! You can also create a public and shareable link. 
