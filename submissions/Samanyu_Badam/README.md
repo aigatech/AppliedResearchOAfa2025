@@ -47,10 +47,15 @@ To use the live webcam smile detection feature:
 
 1. **Navigate to the project directory:**
    ```bash
-   cd "path/to/submissions/Samanyu_Bansal"
+   cd "C:\VS Code Projects\AppliedResearchOAfa2025\submissions\Samanyu_Badam"
    ```
 
 2. **Run the webcam analyzer:**
+   ```bash
+   & "C:/VS Code Projects/AppliedResearchOAfa2025/.venv/Scripts/python.exe" production_webcam.py
+   ```
+   
+   **Alternative (if dependencies installed globally):**
    ```bash
    python production_webcam.py
    ```
@@ -89,12 +94,14 @@ To use the live webcam smile detection feature:
 
 ### Troubleshooting:
 - **Camera not found**: Ensure webcam is connected and not used by other apps
+- **Module not found errors**: Use the full virtual environment path (see commands above)
 - **Slow performance**: Normal - each frame uses 3 HuggingFace models for accuracy
 - **Models downloading**: First run downloads models automatically (one-time setup)
+- **Dependencies missing**: Run `pip install -r requirements.txt` in virtual environment
 
 ## Project Structure
 ```
-submissions/Samanyu_Bansal/
+submissions/Samanyu_Badam/
 ├── README.md                     # This documentation
 ├── requirements.txt              # Python dependencies
 ├── smile_detector.py            # Basic OpenCV detector (fast)
