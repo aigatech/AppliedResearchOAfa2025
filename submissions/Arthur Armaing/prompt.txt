@@ -1,0 +1,7 @@
+There is an event occuring. Figure out the details of the event in terms of time that it occurs, where it occus, and when it starts.
+Format your answer by filling in the structure below and return it. 
+[EVENT = myEvent; TIME = myTime; PLACE = myPlace]
+myEvent is a brief overview of the event, myTime is MONTH_NUMBER/DAY_NUMBER followed by the HOURS_NUMBER and the MINUTES_NUMBER, for exmaple 9/2 18 15,
+and myPlace is the Building and Room number of the most specific place possible. FORMAT THE TIME PROPERLY, this is CRUCIAL. IF A COMPONENT DOESN'T EXIST, WRITE NA
+
+

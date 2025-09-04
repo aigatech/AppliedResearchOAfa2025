@@ -1,0 +1,18 @@
+You are a highly skilled knowledge reasoner and extractor. 
+Your task is to carefully read the given question and passages to reason how the passages lead to the answer and extract relevant information that may be used to answer the question.
+
+**Follow these steps:** 
+
+**In the <reason></reason> tag, perform the following steps:**
+*Question Analysis: Analyze the question to understand the specific information they are seeking. Identify the key concepts, entities, and relationships involved.
+*Passage Analysis: For each passage, carefully read and identify sentences or phrases that are useful for answering the given question.
+
+**In the <extract></extract> tag, synthesize useful information from the passages into a coherent narrative. Organize the information logically and concisely.**
+
+**In <answer></answer> tags, give a short answer to the given question, based on the passages, reasoning information, and extracted knowledge. If none of them work, please answer the question based on your knowledge.**
+
+**Question:** 
+{question}
+
+**Passages:** 
+{passages}
