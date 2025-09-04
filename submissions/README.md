@@ -20,16 +20,15 @@ The **Rhythm Score Calculator** is an innovative audio analysis application that
 
 ## Installation
 ```bash
-# Clone the repository
-git clone https://github.com/yourusername/rhythm-score-calculator.git
-cd rhythm-score-calculator
 
 # Install required dependencies
 pip install torch transformers librosa numpy gradio soundfile
 
-# Navigate to the project directory
-cd rhythm-score-calculator
+### Navigate to the directory that contains **main.py**
 
 # Start the application
 python main.py
+```
+
+###Then navigate to the provided local address to upload data and input a bpm. Then click Submit. The embedding identification part (w/ wav2vec2) works fine, but the score calculation is slightly chopped (still works but a 120 bpm file won't get 100 out of 100 for a 120 bpm setting).
 
