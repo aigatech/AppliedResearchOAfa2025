@@ -151,7 +151,7 @@ function App() {
 
       {loading && (
         <div className="loading">
-          <div>🔄 Generating your recipe...</div>
+          <div>Generating your recipe...</div>
         </div>
       )}
 
@@ -167,7 +167,7 @@ function App() {
           
           {recipe.RecipeIngredientParts && (
             <div>
-              <h3>📝 Ingredients</h3>
+              <h3>Ingredients</h3>
               <ul className="ingredients-list">
                 {formatIngredients(recipe.RecipeIngredientParts).map((ingredient, index) => (
                   <li key={index}>{ingredient}</li>
@@ -178,7 +178,7 @@ function App() {
 
           {recipe.RecipeInstructions && (
             <div>
-              <h3>👩‍🍳 Instructions</h3>
+              <h3>Instructions</h3>
               {formatInstructions(recipe.RecipeInstructions).length > 0 ? (
                 <ol className="instructions-list">
                   {formatInstructions(recipe.RecipeInstructions).map((instruction, index) => (
