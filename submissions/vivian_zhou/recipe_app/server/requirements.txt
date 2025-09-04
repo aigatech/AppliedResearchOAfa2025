@@ -1,0 +1,8 @@
+flask
+flask-cors
+transformers
+datasets
+accelerate
+peft
+bitsandbytes
+torch
