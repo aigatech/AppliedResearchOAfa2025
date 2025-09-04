@@ -1,4 +1,4 @@
-# Rhythm Score Calculator: Audio Rhythm Analysis Tool
+# Rhythm Score Calculator
 
 ## Overview
 The **Rhythm Score Calculator** is an innovative audio analysis application that evaluates rhythmic performance by:
@@ -14,6 +14,22 @@ The **Rhythm Score Calculator** is an innovative audio analysis application that
 | Score Calculation | Generates rhythmic accuracy score through advanced processing |
 | User Interface | **ChatGPT-generated** testing interface |
 
-## Installation Requirements
+## Prerequisites
+- Python 3.8+
+- pip package manager
+
+## Installation
 ```bash
+# Clone the repository
+git clone https://github.com/yourusername/rhythm-score-calculator.git
+cd rhythm-score-calculator
+
+# Install required dependencies
 pip install torch transformers librosa numpy gradio soundfile
+
+# Navigate to the project directory
+cd rhythm-score-calculator
+
+# Start the application
+python main.py
+
