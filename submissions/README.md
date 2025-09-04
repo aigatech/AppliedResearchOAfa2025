@@ -4,7 +4,6 @@
 The **Rhythm Score Calculator** is an innovative audio analysis application that evaluates rhythmic performance by:
 - Processing audio files or recordings
 - Generating a score out of 100 based on rhythmic alignment
-- Utilizing advanced machine learning techniques
 
 ## Technical Components
 | Component | Details |
