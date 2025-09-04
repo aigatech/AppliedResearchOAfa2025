@@ -25,9 +25,5 @@ The program searches for semantically similar sentences with **cosine similarity
 
    ```bash
    pip install torch transformers
-
-   ```bash
     cd path/to/your/project
-   
-   ```bash
-    python main.py
+       python main.py
