@@ -1,0 +1,4 @@
+taichi
+transformers
+torch
+accelerate
