@@ -103,15 +103,16 @@ class HuggingFaceClient(LLMClient):
                 )
 
             model_kwargs = {
-                "dtype": torch_dtype,
-                "device_map": (
-                    "auto" if optimal_device in ["cuda", "mps"] else optimal_device
-                ),
+                "torch_dtype": torch_dtype,
                 "trust_remote_code": True,
                 "use_cache": True,
                 "low_cpu_mem_usage": True,
                 "cache_dir": self.config.cache_dir,
             }
+            
+            # Only use device_map for GPU acceleration, not for CPU
+            if optimal_device in ["cuda", "mps"]:
+                model_kwargs["device_map"] = "auto"
 
             rope_scaling = self.config.get_rope_scaling_config()
             if rope_scaling:
@@ -174,13 +175,9 @@ class HuggingFaceClient(LLMClient):
                 "return_full_text": False,
             }
 
-            device_map = model_kwargs.get("device_map")
-            if device_map != "auto":
-                if optimal_device == "cuda":
-                    pipeline_kwargs["device"] = 0
-                elif optimal_device == "mps":
-                    pipeline_kwargs["device"] = "mps"
-                elif optimal_device == "cpu":
+            # Only specify device if NOT using device_map (which means CPU)
+            if "device_map" not in model_kwargs:
+                if optimal_device == "cpu":
                     pipeline_kwargs["device"] = -1
 
             self.pipeline = pipeline("text-generation", **pipeline_kwargs)
