@@ -24,6 +24,7 @@ It also supports filtering by **genres**, **year ranges**, and **popularity**.
 - Create a custom model that can more accurately interpret user query.
 - Add voice input.
 - Integrate into Spotify API.
+- Add support for langauge filtering.
   
 ---
 
