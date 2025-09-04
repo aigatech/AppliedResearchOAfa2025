@@ -1,0 +1,14 @@
+gradio>=4.39
+transformers>=4.42
+accelerate>=0.33
+sentence-transformers>=3.0
+torch>=2.2
+Pillow>=10.3
+moviepy>=1.0.3
+readability-lxml>=0.8.1
+boilerpy3>=1.0.6
+beautifulsoup4>=4.12
+requests>=2.32
+weasyprint>=62.3
+python-dotenv>=1.0
+lxml>=4.9
