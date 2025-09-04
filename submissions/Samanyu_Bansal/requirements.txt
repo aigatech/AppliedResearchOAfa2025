@@ -1,0 +1,7 @@
+transformers
+opencv-python
+matplotlib
+torch
+numpy
+pillow
+scikit-learn
